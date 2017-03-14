@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html>
-    <head ng-app="ArriveDry">
+<html ng-app="ArriveDry">
+    <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>ArriveDry</title>
@@ -9,6 +9,9 @@
     </head>
     <body>
 
+        <div ng-include="'partials/navbar.html'"></div>
+
+        <div ng-view></div>
 
         <!--third party js-->
         <script type="text/javascript" src="lib/node_modules/jquery/dist/jquery.min.js"></script>
@@ -27,7 +30,8 @@
         <script type="text/javascript" src=""></script>
 
         <!-- controllers -->
-        <script type="text/javascript" src=""></script>
+        <script type="text/javascript" src="app/controllers/NavbarCtrl.js"></script>
+        <script type="text/javascript" src="app/controllers/GetStartedCtrl.js"></script>
 
     </body>
 </html>
