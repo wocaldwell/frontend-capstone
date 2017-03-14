@@ -1,0 +1,6 @@
+.DS_Store
+lib/node_modules/
+app/credentials/
+.sass-cache
+test.js
+test.json
