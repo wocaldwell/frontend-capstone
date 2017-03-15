@@ -13,5 +13,10 @@ app.config(function($routeProvider) {
     .when("/conditions", {
         templateUrl: "partials/currentConditions.html",
         controller: "CurrentConditionsCtrl"
-    });
+    })
+    .when("/testing", {
+        templateUrl: "partials/moreInfo.html",
+        controller: "MoreInfoCtrl"
+    })
+    ;
 });

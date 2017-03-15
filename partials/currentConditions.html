@@ -1,19 +1,20 @@
 
 <div class="container">
     <div class="row">
-        <div class="item" >
-            <div class="well text-center">
-                <img class="card-img-top pin-image" src="http://api.wunderground.com/api/{{apiKey}}/animatedradar/animatedsatellite/q/{{locationLat}},{{locationLon}}.gif?num=8&delay=50&interval=30" alt="weather radar"><br>
-                <div class="container">
+        <div ng-include="'partials/moreInfo.html'"></div>
+        <div class="col-xs-6">
+            <div class="item" >
+                <div class="well text-center">
+                    <img class="card-img-top pin-image" src="http://api.wunderground.com/api/{{apiKey}}/animatedradar/animatedsatellite/q/{{locationLat}},{{locationLon}}.gif?num=8&delay=50&interval=30" alt="weather radar"><br>
                     <div class="row">
-                        <div class="col-xs-6">
+                        <div class="col">
                             <img class="img-thumbnail" src="{{icon}}" alt="{{iconText}}">
                             <p>{{iconText}}</p>
                         </div>
-                        <div class="col-xs-6">
+                        <div class="col">
                             <h2><strong>{{temperature}}</strong> &deg;F</h2>
                             <p>Feels like <strong>{{feelsLikeTemperature}}</strong></p>
-                        <div class="col-xs-4">
+                        </div>
                     </div><hr>
                     <p>Wind is {{wind}}</p>
                 </div>
