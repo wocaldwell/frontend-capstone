@@ -2,7 +2,8 @@
 
 app.factory("LocationFactory", function($window) {
 
-    let myCoords = "";
+    let myCoords = "",
+        destination = "";
 
     let myPosition = function(position) {
         myCoords = position.coords.latitude + "," + position.coords.longitude;
@@ -16,8 +17,18 @@ app.factory("LocationFactory", function($window) {
         return myCoords;
     };
 
+    let setDestination = function(userDestination) {
+        destination = userDestination;
+        console.log('your destination is: ', userDestination);
+        return destination;
+    };
+
+    let getDestination = function() {
+        return destination;
+    };
 
 
-    return {currentLocation, getMyCoords};
+
+    return {currentLocation, getMyCoords, setDestination, getDestination};
 
 });

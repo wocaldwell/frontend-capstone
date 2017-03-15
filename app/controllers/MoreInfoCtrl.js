@@ -1,12 +1,13 @@
 "use strict";
 
-app.controller("MoreInfoCtrl", function($scope, $window, $location, TimeFactory, WeatherFactory) {
+app.controller("MoreInfoCtrl", function($scope, $window, $location, TimeFactory, WeatherFactory, LocationFactory) {
 
     $scope.nowButton = "Now";
     $scope.oneHourButton = "Within One Hour";
     $scope.twoHourButton = "Two Hours";
     $scope.threeHourButton = "Three Hours";
     $scope.returnTime = "";
+    $scope.userDestination = LocationFactory.getDestination();
 
 
 
