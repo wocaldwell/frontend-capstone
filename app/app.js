@@ -9,5 +9,9 @@ app.config(function($routeProvider) {
     .when("/", {
         templateUrl: "partials/getStarted.html",
         controller: "GetStartedCtrl"
+    })
+    .when("/conditions", {
+        templateUrl: "partials/currentConditions.html",
+        controller: "CurrentConditionsCtrl"
     });
 });
