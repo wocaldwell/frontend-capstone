@@ -2,7 +2,6 @@
 
 app.controller("MoreInfoCtrl", function($scope, $window, $location, TimeFactory, WeatherFactory, LocationFactory) {
 
-    $scope.showMore = true;
     $scope.nowButton = "Now";
     $scope.oneHourButton = "Within One Hour";
     $scope.twoHourButton = "Two Hours";
@@ -10,27 +9,15 @@ app.controller("MoreInfoCtrl", function($scope, $window, $location, TimeFactory,
     $scope.returnTime = "";
     $scope.userDestination = LocationFactory.getDestination();
 
-
-
     $scope.setDeparture = function(departureButton) {
         TimeFactory.setDepartureHour(departureButton);
     };
 
     $scope.goToReccomendations = function() {
         console.log('you wrote: ', $scope.returnTime);
+        TimeFactory.setDepartureHour();
         TimeFactory.setReturnHour($scope.returnTime);
-        // WeatherFactory.getHourlyConditions();
-        // .then(function(conditions) {
-        //     console.log('The conditions array is: ', conditions);
-        //     $scope.locationLat = conditions.display_location.latitude;
-        //     $scope.locationLon = conditions.display_location.longitude;
-        //     $scope.icon = conditions.icon_url;
-        //     $scope.iconText = conditions.icon;
-        //     $scope.temperature = conditions.temp_f;
-        //     $scope.feelsLikeTemperature = conditions.feelslike_f;
-        //     $scope.wind = conditions.wind_string;
-        // });
-        $scope.showMore = false;
+        TimeFactory.setReturnTimeString($scope.returnTime);
         $window.location.href = "#!/recommendations";
     };
 
