@@ -9,17 +9,17 @@
     </div>
 
     <h4>For your ride to {{userDestination}}</h4>
-    <h5>Tempurature:<strong> TEMP</strong></h5>
-    <h5>Forecast:<strong> ICON</strong></h5>
-    <h5>Wind:<strong> WIND</strong></h5>
-    <p>This will be where the recommendations go. For this one it will be what to wear and how many meals to pack. I would also like to include a little more forcast info. such as, persipitation chances</p>
+    <h5>Temperature:<strong> {{departTemperature}}</strong></h5>
+    <h5>Forecast:<strong> {{departForecast}}</strong></h5>
+    <h5>Wind:<strong> {{departWindDirection}} at {{departWindSpeed}}mph</strong></h5>
+    <p>This will be where the recommendations go. For this one it will be what to wear and how many meals to pack. I would also like to include a little more forcast info. such as persipitation chances.</p>
 
 
-    <h4>For your return ride</h4>
-    <h5>Tempurature:<strong> TEMP</strong></h5>
-    <h5>Forecast:<strong> ICON</strong></h5>
-    <h5>Wind:<strong> WIND</strong></h5>
-    <p>This will be where the recommendations go. For this one it will be if / how it differs from the earlier ride.</p>
+    <h4>For your return ride at {{returnTimeFull}}</h4>
+    <h5>Temperature:<strong> {{returnTemperature}}</strong></h5>
+    <h5>Forecast:<strong> {{returnForecast}}</strong></h5>
+    <h5>Wind:<strong> {{returnWindDirection}} at {{returnWindSpeed}}mph</strong></h5>
+    <p>This will be where the recommendations go. For this one it will be if / how they differ from the earlier ride.</p>
 
 </div>
 <div class="container" ng-controller="CurrentConditionsCtrl">
@@ -27,6 +27,7 @@
         <div class="col-xs-6">
             <div class="item" >
                 <div class="well text-center">
+                    <h5>Current Conditions</h5>
                     <img class="card-img-top pin-image" src="http://api.wunderground.com/api/{{apiKey}}/animatedradar/animatedsatellite/q/{{locationLat}},{{locationLon}}.gif?num=8&delay=50&interval=30" alt="weather radar"><br>
                     <div class="row">
                         <div class="col">
