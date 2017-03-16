@@ -39,12 +39,12 @@ app.factory("TimeFactory", function($window) {
 
     let setReturnHour = function(returnTime) {
         let timeString = returnTime,
-            tempTemp = timeString.split(":")[0];
+            temporaryHour = timeString.split(":")[0];
         if (timeString.includes("P") || timeString.includes("p")) {
-            tempTemp = parseInt(tempTemp) + 12;
-            tempTemp = String(tempTemp);
+            temporaryHour = parseInt(temporaryHour) + 12;
+            temporaryHour = String(temporaryHour);
         }
-        returnHour = tempTemp;
+        returnHour = temporaryHour;
         console.log('returnHour = ', returnHour);
         return returnHour;
     };
@@ -54,6 +54,27 @@ app.factory("TimeFactory", function($window) {
         return returnHour;
     };
 
-    return {setDepartureHour, getDepartureHour, setReturnHour, getReturnHour, setReturnTimeString, getReturnTimeString};
+    let getDepartTimeString = function() {
+        currentDate = new Date();
+        let temporaryDepartHour = getDepartureHour(),
+            temporaryMinutes = currentDate.getMinutes() + "am";
+        if (temporaryDepartHour > 12) {
+            temporaryDepartHour = parseInt(temporaryDepartHour) - 12;
+            temporaryDepartHour = String(temporaryDepartHour);
+            temporaryMinutes = currentDate.getMinutes() + "pm";
+        }
+        let departTimeString = temporaryDepartHour + ":" + temporaryMinutes;
+        return departTimeString;
+    };
+
+    let getTimeBetweenRides = function() {
+        let startTime = getDepartureHour(),
+            backTime = getReturnHour(),
+            timeBetweenRides = backTime - startTime;
+        console.log('Your workday is approx.', timeBetweenRides, ' hours long.');
+        return timeBetweenRides;
+    };
+
+    return {setDepartureHour, getDepartureHour, setReturnHour, getReturnHour, setReturnTimeString, getDepartTimeString, getReturnTimeString, getTimeBetweenRides};
 
 });

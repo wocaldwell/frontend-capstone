@@ -7,6 +7,7 @@ app.controller("RecommendationsCtrl", function($scope, $window, $location, TimeF
     $scope.newStartAddress = "";
     $scope.userDestination = LocationFactory.getDestination();
     $scope.returnTimeFull = TimeFactory.getReturnTimeString();
+    $scope.departTimeFull = TimeFactory.getDepartTimeString();
 
     $scope.showChangeAddress = function() {
         console.log('you clicked Change starting location');
@@ -44,5 +45,6 @@ app.controller("RecommendationsCtrl", function($scope, $window, $location, TimeF
         $scope.returnWindSpeed = returnObject.wspd.english;
     });
 
+    TimeFactory.getTimeBetweenRides();
 
 });
