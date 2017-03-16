@@ -2,6 +2,7 @@
 
 app.controller("MoreInfoCtrl", function($scope, $window, $location, TimeFactory, WeatherFactory, LocationFactory) {
 
+    $scope.showMore = true;
     $scope.nowButton = "Now";
     $scope.oneHourButton = "Within One Hour";
     $scope.twoHourButton = "Two Hours";
@@ -18,7 +19,7 @@ app.controller("MoreInfoCtrl", function($scope, $window, $location, TimeFactory,
     $scope.goToReccomendations = function() {
         console.log('you wrote: ', $scope.returnTime);
         TimeFactory.setReturnHour($scope.returnTime);
-        // WeatherFactory.getHourlyConditions()
+        // WeatherFactory.getHourlyConditions();
         // .then(function(conditions) {
         //     console.log('The conditions array is: ', conditions);
         //     $scope.locationLat = conditions.display_location.latitude;
@@ -29,6 +30,8 @@ app.controller("MoreInfoCtrl", function($scope, $window, $location, TimeFactory,
         //     $scope.feelsLikeTemperature = conditions.feelslike_f;
         //     $scope.wind = conditions.wind_string;
         // });
+        $scope.showMore = false;
+        $window.location.href = "#!/recommendations";
     };
 
 });

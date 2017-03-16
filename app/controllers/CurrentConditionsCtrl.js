@@ -1,7 +1,8 @@
 "use strict";
 
-app.controller("CurrentConditionsCtrl", function($scope, $window, $location, LocationFactory, WeatherFactory, WeatherCredentials) {
+app.controller("CurrentConditionsCtrl", function($scope, $window, $location, LocationFactory, WeatherFactory, WeatherCredentials, $routeParams) {
     $scope.apiKey = WeatherCredentials.apiKey;
+
     WeatherFactory.getConditions()
     .then(function(conditions) {
         console.log('The conditions object is: ', conditions);
@@ -13,5 +14,6 @@ app.controller("CurrentConditionsCtrl", function($scope, $window, $location, Loc
         $scope.feelsLikeTemperature = conditions.feelslike_f;
         $scope.wind = conditions.wind_string;
     });
+
     // $scope.myCoords = LocationFactory.getMyCoords();
 });

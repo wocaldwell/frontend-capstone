@@ -41,6 +41,6 @@ app.factory("TimeFactory", function($window) {
         return returnHour;
     };
 
-    return {setDepartureHour, getDepartureHour, setReturnHour};
+    return {setDepartureHour, getDepartureHour, setReturnHour, getReturnHour};
 
 });

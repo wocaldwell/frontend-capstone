@@ -18,5 +18,9 @@ app.config(function($routeProvider) {
         templateUrl: "partials/moreInfo.html",
         controller: "MoreInfoCtrl"
     })
+    .when("/recommendations", {
+        templateUrl: "partials/recommendations.html",
+        controller: "RecommendationsCtrl"
+    })
     ;
 });
