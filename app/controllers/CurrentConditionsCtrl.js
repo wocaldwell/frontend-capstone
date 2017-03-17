@@ -17,6 +17,8 @@ app.controller("CurrentConditionsCtrl", function($scope, $window, $location, Loc
             $scope.temperature = conditions.temp_f;
             $scope.feelsLikeTemperature = conditions.feelslike_f;
             $scope.wind = conditions.wind_string;
+            $scope.locationCity = conditions.display_location.city;
+            $scope.locationState = conditions.display_location.state;
         });
     });
 
