@@ -3,6 +3,7 @@
 app.controller("CurrentConditionsCtrl", function($scope, $window, $location, LocationFactory, WeatherFactory, WeatherCredentials, $routeParams) {
     $scope.apiKey = WeatherCredentials.apiKey;
 
+
     LocationFactory.myPosition()
     .then(LocationFactory.getMyCoords());
 
