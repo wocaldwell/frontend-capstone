@@ -9,4 +9,7 @@ app.controller("GetStartedCtrl", function($scope, $window, $location, LocationFa
         LocationFactory.setDestination($scope.userDestination);
         $window.location.href = "#!/conditions";
     };
+
+    // LocationFactory.getMyCoords();
+
 });

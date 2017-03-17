@@ -21,4 +21,6 @@ app.controller("MoreInfoCtrl", function($scope, $window, $location, TimeFactory,
         $window.location.href = "#!/recommendations";
     };
 
+    // LocationFactory.getMyCoords();
+
 });

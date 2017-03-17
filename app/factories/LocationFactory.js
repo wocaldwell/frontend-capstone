@@ -14,6 +14,7 @@ app.factory("LocationFactory", function($window) {
     let currentLocation = $window.navigator.geolocation.getCurrentPosition(myPosition);
 
     let getMyCoords = function() {
+        console.log('myCoords in getMyCoords = ', myCoords);
         return myCoords;
     };
 
@@ -27,8 +28,6 @@ app.factory("LocationFactory", function($window) {
         return destination;
     };
 
-
-
-    return {currentLocation, getMyCoords, setDestination, getDestination};
+    return {getMyCoords, setDestination, getDestination};
 
 });
