@@ -6,8 +6,8 @@
             <div class="item" >
                 <div class="well text-center">
                     <h5>Current Conditions</h5>
-                    <img class="card-img-top pin-image" src="http://api.wunderground.com/api/{{apiKey}}/animatedradar/animatedsatellite/q/{{locationLat}},{{locationLon}}.gif?num=8&delay=50&interval=30" alt="weather radar"><br>
-                    <div class="row">
+                    <a href="https://www.wunderground.com/wundermap?lat={{locationLat}}&lon={{locationLon}}&radar=1" target="_blank"><img class="card-img-top pin-image" src="http://api.wunderground.com/api/{{apiKey}}/animatedradar/animatedsatellite/q/{{locationLat}},{{locationLon}}.gif?num=8&delay=50&interval=30" alt="weather radar"></a><br>
+                    <a href="https://www.wunderground.com/cgi-bin/findweather/getForecast?query={{locationCity}}%2C+{{locationState}}" target="_blank"><div class="row">
                         <div class="col">
                             <img class="img-thumbnail" src="{{icon}}" alt="{{iconText}}">
                             <p>{{iconText}}</p>
@@ -16,7 +16,7 @@
                             <h2><strong>{{temperature}}</strong> &deg;F</h2>
                             <p>Feels like <strong>{{feelsLikeTemperature}}</strong></p>
                         </div>
-                    </div><hr>
+                    </div></a><hr>
                     <p>Wind is {{wind}}</p>
                 </div>
             </div>
