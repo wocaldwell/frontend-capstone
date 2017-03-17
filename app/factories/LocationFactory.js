@@ -1,19 +1,22 @@
 "use strict";
 
-app.factory("LocationFactory", function($window) {
+app.factory("LocationFactory", function($window, $q) {
 
     let myCoords = "",
         destination = "";
 
-    let myPosition = function(position) {
-        myCoords = position.coords.latitude + "," + position.coords.longitude;
-        console.log('myCoords = ', myCoords);
-        return myCoords;
+    let getGeolocation = function() {
+        return $q(function(resolve, reject) {
+            $window.navigator.geolocation.getCurrentPosition(function(position) {
+                myCoords = position.coords.latitude + "," + position.coords.longitude;
+                console.log('myCoords from getGeolocation = ', myCoords);
+                resolve(myCoords);
+            });
+        });
     };
 
-    let currentLocation = $window.navigator.geolocation.getCurrentPosition(myPosition);
-
     let getMyCoords = function() {
+        console.log('myCoords in getMyCoords = ', myCoords);
         return myCoords;
     };
 
@@ -27,8 +30,6 @@ app.factory("LocationFactory", function($window) {
         return destination;
     };
 
-
-
-    return {currentLocation, getMyCoords, setDestination, getDestination};
+    return {getGeolocation, getMyCoords, setDestination, getDestination};
 
 });

@@ -46,5 +46,6 @@ app.controller("RecommendationsCtrl", function($scope, $window, $location, TimeF
     });
 
     TimeFactory.getTimeBetweenRides();
+    // LocationFactory.getMyCoords();
 
 });
