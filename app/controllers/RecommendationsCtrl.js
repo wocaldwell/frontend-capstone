@@ -31,17 +31,22 @@ app.controller("RecommendationsCtrl", function($scope, $window, $location, TimeF
         .then(function(conditions) {
             let departHour = TimeFactory.getDepartureHour(),
                 returningHour = TimeFactory.getReturnHour(),
+                departDate = String(TimeFactory.currentDay),
                 departObject = {},
                 returnObject = {};
             console.log('the depart and return hours are ', departHour, ' and ', returningHour);
+            console.log('departDate is ', departDate);
             for (var i = 0; i < conditions.length; i++) {
-                if (conditions[i].FCTTIME.hour === departHour) {
+                console.log('monthDay from wu ', conditions[i].FCTTIME.mday);
+                if (conditions[i].FCTTIME.hour === departHour && conditions[i].FCTTIME.mday === departDate) {
                     departObject = conditions[i];
-                } if (conditions[i].FCTTIME.hour === returningHour) {
+                } if (conditions[i].FCTTIME.hour === returningHour && conditions[i].FCTTIME.mday === departDate) {
                     returnObject = conditions[i];
                 }
             }
             console.log('departObject = ', departObject);
+            console.log('returnObject = ', returnObject);
+
             $scope.departTemperature = departObject.temp.english;
             $scope.departForecast = departObject.condition;
             $scope.departWindDirection = departObject.wdir.dir;
@@ -90,15 +95,15 @@ app.controller("RecommendationsCtrl", function($scope, $window, $location, TimeF
                     $scope.departHeatSentence = returnedRecs.veryhot;
                 } if (parseInt($scope.returnTemperature) <= 20) {
                     $scope.returnHeatSentence = returnedRecs.verycold;
-                } if (parseInt($scope.returnTemperature) >= 21 && parseInt($scope.departTemperature) <= 40) {
+                } if (parseInt($scope.returnTemperature) >= 21 && parseInt($scope.returnTemperature) <= 40) {
                     $scope.returnHeatSentence = returnedRecs.cold;
-                } if (parseInt($scope.returnTemperature) >= 41 && parseInt($scope.departTemperature) <= 60) {
+                } if (parseInt($scope.returnTemperature) >= 41 && parseInt($scope.returnTemperature) <= 60) {
                     $scope.returnHeatSentence = returnedRecs.cool;
-                } if (parseInt($scope.returnTemperature) >= 61 && parseInt($scope.departTemperature) <= 75) {
+                } if (parseInt($scope.returnTemperature) >= 61 && parseInt($scope.returnTemperature) <= 75) {
                     $scope.returnHeatSentence = returnedRecs.comfortable;
-                } if (parseInt($scope.returnTemperature) >= 76 && parseInt($scope.departTemperature) <= 85) {
+                } if (parseInt($scope.returnTemperature) >= 76 && parseInt($scope.returnTemperature) <= 85) {
                     $scope.returnHeatSentence = returnedRecs.warm;
-                } if (parseInt($scope.returnTemperature) >= 86 && parseInt($scope.departTemperature) <= 99) {
+                } if (parseInt($scope.returnTemperature) >= 86 && parseInt($scope.returnTemperature) <= 99) {
                     $scope.returnHeatSentence = returnedRecs.hot;
                 } if (parseInt($scope.returnTemperature) >= 100) {
                     $scope.returnHeatSentence = returnedRecs.veryhot;

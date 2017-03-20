@@ -9,11 +9,12 @@ app.controller("CurrentConditionsCtrl", function($scope, $window, $location, Loc
     .then(function(returnedCoords) {
         WeatherFactory.getConditions(returnedCoords)
         .then(function(conditions) {
+            let iconText = conditions.icon;
             console.log('The conditions object is: ', conditions);
             $scope.locationLat = conditions.display_location.latitude;
             $scope.locationLon = conditions.display_location.longitude;
-            $scope.icon = conditions.icon_url;
-            $scope.iconText = conditions.icon;
+            $scope.icon = `https://icons.wxug.com/i/c/i/${iconText}.gif`;
+            $scope.weather = conditions.weather;
             $scope.temperature = conditions.temp_f;
             $scope.feelsLikeTemperature = conditions.feelslike_f;
             $scope.wind = conditions.wind_string;

@@ -2,11 +2,13 @@
 
 app.factory("TimeFactory", function($window) {
     let currentDate = new Date(),
+        currentDay = currentDate.getDate(),
         currentHour = currentDate.getHours(),
         currentMinute = currentDate.getMinutes(),
         departureHour = String(currentHour),
         returnHour = "",
         returnTimeString = "";
+        console.log('the day is ', currentDay);
 
     let setReturnTimeString = function(returnTime) {
         returnTimeString = returnTime;
@@ -18,7 +20,10 @@ app.factory("TimeFactory", function($window) {
     };
 
     let setDepartureHour = function(button) {
-        if (button === "Two Hours") {
+        if (button === "Within One Hour") {
+            departureHour = currentHour + 1;
+            console.log('this hour + 1 is', departureHour);
+        } if (button === "Two Hours") {
             departureHour = currentHour + 2;
             console.log('hour = ', currentHour);
             console.log('this hour + 2 is', departureHour);
@@ -80,6 +85,6 @@ app.factory("TimeFactory", function($window) {
         return timeBetweenRides;
     };
 
-    return {setDepartureHour, getDepartureHour, setReturnHour, getReturnHour, setReturnTimeString, getDepartTimeString, getReturnTimeString, getTimeBetweenRides};
+    return {setDepartureHour, getDepartureHour, setReturnHour, getReturnHour, setReturnTimeString, getDepartTimeString, getReturnTimeString, getTimeBetweenRides, currentDay};
 
 });

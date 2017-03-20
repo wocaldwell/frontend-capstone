@@ -1,13 +1,8 @@
 {
-    "condition-phrases": {
-        "wet-types": ["Rain", "Thunderstorms", "Thunderstorm", "Flurries", "Sleet", "Snow"]
-    },
-    "meals": {
-        "short": "you should pack a snack",
-        "regular": "don't forget to pack a meal",
-        "long": "you may need to pack a meal and a snack"
-    },
-    "heat-description" : {
+  "condition-phrases" : {
+    "wet-types" : [ "Rain", "Thunderstorms", "Thunderstorm", "Flurries", "Sleet", "Snow" ]
+  },
+  "heat-description" : {
     "cold" : "COLDLANG",
     "comfortable" : "The temperature will be pretty comfortable for this ride.",
     "cool" : "COOLLANG",
@@ -16,10 +11,15 @@
     "veryhot" : "VERYHOTLANG",
     "warm" : "WARMLANG"
   },
-    "precipitation": {
-        "insignificant": "No need for the waterproof gear.",
-        "slight": "You might pack the rain gear just to be safe",
-        "possible": "It is highly recommended that you have a way to keep thing dry.",
-        "probable": "RAIN GEAR IS NECESSARY TODAY"
-    }
+  "meals" : {
+    "long" : "you may need to pack a meal and a snack",
+    "regular" : "don't forget to pack a meal",
+    "short" : "you should pack a snack"
+  },
+  "precipitation" : {
+    "insignificant" : "there is no need for the waterproof gear",
+    "possible" : "it is highly recommended that you have a way to keep thing dry",
+    "probable" : "RAIN GEAR IS NECESSARY TODAY",
+    "slight" : "you might pack the rain gear just to be safe"
+  }
 }
