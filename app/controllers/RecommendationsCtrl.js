@@ -150,12 +150,3 @@ app.controller("RecommendationsCtrl", function($scope, $window, $location, TimeF
 
 
 });
-
-  // RecommendationsFactory.getWetRecomendations()
-            // .then(function(returnedRecs) {
-            //     let tempDepartPrecipitation = $scope.departPrecipitation,
-            //         tempReturnPrecipitation = $scope.returnPrecipitation;
-            //     $scope.departWetSentence = returnedRecs.tempDepartPrecipitation;
-            //     $scope.returnWetSentence = returnedRecs.tempReturnPrecipitation;
-            //     console.log('$scope.departWetSentence = ', $scope.departWetSentence);
-            // });
