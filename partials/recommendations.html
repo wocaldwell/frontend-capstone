@@ -12,14 +12,14 @@
     <h5>Temperature:<strong> {{departTemperature}}</strong></h5>
     <h5>Forecast:<strong> {{departForecast}}</strong></h5>
     <h5>Wind:<strong> {{departWindDirection}} at {{departWindSpeed}}mph</strong></h5>
-    <p>This will be where the recommendations go. For this one it will be what to wear and how many meals to pack. I would also like to include a little more forcast info. such as persipitation chances.</p>
+    <p>{{departHeatSentence}} The chance for precipitation is {{departPrecipitation}} so <strong>{{departWetSentence}}</strong>. Since your time away is  about {{dayLength}} hours <strong>{{mealPack}}</strong>.</p>
 
 
     <h4>For your return ride at {{returnTimeFull}}</h4>
     <h5>Temperature:<strong> {{returnTemperature}}</strong></h5>
     <h5>Forecast:<strong> {{returnForecast}}</strong></h5>
     <h5>Wind:<strong> {{returnWindDirection}} at {{returnWindSpeed}}mph</strong></h5>
-    <p>This will be where the recommendations go. For this one it will be if / how they differ from the earlier ride.</p>
+    <p>{{returnHeatSentence}} The chance for precipitation is {{returnPrecipitation}} so <strong>{{returnWetSentence}}</strong>.</p>
 
 </div>
 <div class="container" ng-controller="CurrentConditionsCtrl">

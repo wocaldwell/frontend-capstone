@@ -40,7 +40,7 @@ app.factory("TimeFactory", function($window) {
     let setReturnHour = function(returnTime) {
         let timeString = returnTime,
             temporaryHour = timeString.split(":")[0];
-        if (timeString.includes("P") || timeString.includes("p")) {
+        if (timeString.includes("P") || timeString.includes("p") && temporaryHour !== "12") {
             temporaryHour = parseInt(temporaryHour) + 12;
             temporaryHour = String(temporaryHour);
         }
@@ -57,7 +57,12 @@ app.factory("TimeFactory", function($window) {
     let getDepartTimeString = function() {
         currentDate = new Date();
         let temporaryDepartHour = getDepartureHour(),
-            temporaryMinutes = currentDate.getMinutes() + "am";
+            temporaryMinutes = currentDate.getMinutes();
+            console.log('temporaryMinutes = ', temporaryMinutes);
+        // if (temporaryMinutes < 10) {
+        //     temporaryMinutes = "0" + temporaryMinutes;
+        // }
+        temporaryMinutes = temporaryMinutes + "am";
         if (temporaryDepartHour > 12) {
             temporaryDepartHour = parseInt(temporaryDepartHour) - 12;
             temporaryDepartHour = String(temporaryDepartHour);
