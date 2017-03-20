@@ -4,3 +4,4 @@ app/credentials/
 .sass-cache
 test.js
 test.json
+recs.json
