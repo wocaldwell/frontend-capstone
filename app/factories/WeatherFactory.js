@@ -18,10 +18,9 @@ app.factory("WeatherFactory", function($q, $http, WeatherCredentials, LocationFa
         });
     };
 
-    let getHourlyConditions = function() {
-        let thisSpot = LocationFactory.getMyCoords();
+    let getHourlyConditions = function(coords) {
         return $q(function(resolve, reject) {
-            $http.get(`http://api.wunderground.com/api/${WeatherCredentials.apiKey}/hourly/q/${thisSpot}.json`)
+            $http.get(`http://api.wunderground.com/api/${WeatherCredentials.apiKey}/hourly/q/${coords}.json`)
         .then(function(hourlyConditions) {
             console.log('hourlyConditions = ', hourlyConditions);
             let hourlyArray = hourlyConditions.data.hourly_forecast;
