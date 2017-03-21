@@ -10,6 +10,7 @@ app.factory("TimeFactory", function($window) {
         returnTimeString = "";
         console.log('the day is ', currentDay);
 
+
     let setReturnTimeString = function(returnTime) {
         returnTimeString = returnTime;
         return returnTimeString;
@@ -19,9 +20,13 @@ app.factory("TimeFactory", function($window) {
         return returnTimeString;
     };
 
+    // setting default depart hour for instances when no time is chosen
+    departureHour = currentHour + 1;
+
+    // setting depart hour if an option is clicked
     let setDepartureHour = function(button) {
         if (button === "Within One Hour") {
-            departureHour = currentHour + 1;
+            // departureHour = currentHour + 1;
             console.log('this hour + 1 is', departureHour);
         } if (button === "Two Hours") {
             departureHour = currentHour + 2;
@@ -48,6 +53,9 @@ app.factory("TimeFactory", function($window) {
         if (timeString.includes("P") || timeString.includes("p") && temporaryHour !== "12") {
             temporaryHour = parseInt(temporaryHour) + 12;
             temporaryHour = String(temporaryHour);
+        } if (timeString.includes("A") || timeString.includes("a") && temporaryHour === "12") {
+            temporaryHour = parseInt(temporaryHour) - 12;
+            temporaryHour = String(temporaryHour);
         }
         returnHour = temporaryHour;
         console.log('returnHour = ', returnHour);
@@ -55,23 +63,27 @@ app.factory("TimeFactory", function($window) {
     };
 
     let getReturnHour = function() {
-        console.log('you set the return hour to ', returnHour);
+        console.log('you are getting the return hour of ', returnHour);
         return returnHour;
     };
 
     let getDepartTimeString = function() {
         currentDate = new Date();
         let temporaryDepartHour = getDepartureHour(),
+            // temporaryMinutes = 7;
             temporaryMinutes = currentDate.getMinutes();
+            console.log('temporaryDepartHour in getDepartTimeString is ', temporaryDepartHour);
             console.log('temporaryMinutes = ', temporaryMinutes);
-        // if (temporaryMinutes < 10) {
-        //     temporaryMinutes = "0" + temporaryMinutes;
-        // }
-        temporaryMinutes = temporaryMinutes + "am";
-        if (temporaryDepartHour > 12) {
+        if (temporaryMinutes < 10) {
+            temporaryMinutes = "0" + temporaryMinutes;
+        } if (parseInt(temporaryDepartHour) < 12) {
+            temporaryMinutes = temporaryMinutes + "am";
+        } if (parseInt(temporaryDepartHour) === 12) {
+            temporaryMinutes = temporaryMinutes + "pm";
+        } if (temporaryDepartHour > 12) {
             temporaryDepartHour = parseInt(temporaryDepartHour) - 12;
             temporaryDepartHour = String(temporaryDepartHour);
-            temporaryMinutes = currentDate.getMinutes() + "pm";
+            temporaryMinutes = temporaryMinutes + "pm";
         }
         let departTimeString = temporaryDepartHour + ":" + temporaryMinutes;
         return departTimeString;
@@ -81,6 +93,10 @@ app.factory("TimeFactory", function($window) {
         let startTime = getDepartureHour(),
             backTime = getReturnHour(),
             timeBetweenRides = backTime - startTime;
+        if (parseInt(backTime) < parseInt(startTime)) {
+            timeBetweenRides = parseInt(backTime) + parseInt(startTime);
+            timeBetweenRides = String(timeBetweenRides);
+        }
         console.log('Your workday is approx.', timeBetweenRides, ' hours long.');
         return timeBetweenRides;
     };

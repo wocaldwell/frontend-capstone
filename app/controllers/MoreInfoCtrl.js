@@ -2,7 +2,7 @@
 
 app.controller("MoreInfoCtrl", function($scope, $window, $location, TimeFactory, WeatherFactory, LocationFactory) {
 
-    $scope.nowButton = "Now";
+    // $scope.nowButton = "Now";
     $scope.oneHourButton = "Within One Hour";
     $scope.twoHourButton = "Two Hours";
     $scope.threeHourButton = "Three Hours";
