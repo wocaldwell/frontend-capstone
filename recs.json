@@ -3,13 +3,13 @@
     "wet-types" : [ "Rain", "Thunderstorms", "Thunderstorm", "Flurries", "Sleet", "Snow" ]
   },
   "heat-description" : {
-    "cold" : "COLDLANG",
+    "cold" : "Have extra layers for this ride, it's goning to be pretty cold.",
     "comfortable" : "The temperature will be pretty comfortable for this ride.",
-    "cool" : "COOLLANG",
-    "hot" : "HOTLANG",
+    "cool" : "It's a good thing you aren't Phil Collins because based on the cool temperature this ride WILL be jacket required!",
+    "hot" : "Light clothing is recommended for this trip and you just might See people rocking. . . hear people chanting, feeling, Hot! Hot! Hot!",
     "verycold" : "This ride will be very cold. Be sure to have gloves and wear insulating layers.",
-    "veryhot" : "VERYHOTLANG",
-    "warm" : "WARMLANG"
+    "veryhot" : "Mother father it is hot! Pack extra water, you're gonna need it.",
+    "warm" : "This trip may be a little warm. Be prepared to rip your sleeves off!"
   },
   "meals" : {
     "long" : "you may need to pack a meal and a snack",
@@ -18,7 +18,7 @@
   },
   "precipitation" : {
     "insignificant" : "there is no need for the waterproof gear",
-    "possible" : "it is highly recommended that you have a way to keep thing dry",
+    "possible" : "it is highly recommended that you have a way to keep things dry",
     "probable" : "RAIN GEAR IS NECESSARY TODAY",
     "slight" : "you might pack the rain gear just to be safe"
   }

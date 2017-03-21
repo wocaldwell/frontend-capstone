@@ -47,15 +47,20 @@ app.controller("RecommendationsCtrl", function($scope, $window, $location, TimeF
             let departHour = TimeFactory.getDepartureHour(),
                 returningHour = TimeFactory.getReturnHour(),
                 departDate = String(TimeFactory.currentDay),
+                tempNextDate = parseInt(departDate) + 1,
+                nextDate = String(tempNextDate),
                 departObject = {},
                 returnObject = {};
             console.log('the depart and return hours are ', departHour, ' and ', returningHour);
             console.log('departDate is ', departDate);
+            console.log('nextDate = ', nextDate);
             for (var i = 0; i < conditions.length; i++) {
                 console.log('monthDay from wu ', conditions[i].FCTTIME.mday);
                 if (conditions[i].FCTTIME.hour === departHour && conditions[i].FCTTIME.mday === departDate) {
                     departObject = conditions[i];
                 } if (conditions[i].FCTTIME.hour === returningHour && conditions[i].FCTTIME.mday === departDate) {
+                    returnObject = conditions[i];
+                } if (parseInt(returningHour) <= parseInt(departHour) && conditions[i].FCTTIME.mday === nextDate) {
                     returnObject = conditions[i];
                 }
             }
