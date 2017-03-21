@@ -21,17 +21,32 @@ app.factory("WeatherFactory", function($q, $http, WeatherCredentials, LocationFa
     let getHourlyConditions = function(coords) {
         return $q(function(resolve, reject) {
             $http.get(`http://api.wunderground.com/api/${WeatherCredentials.apiKey}/hourly/q/${coords}.json`)
-        .then(function(hourlyConditions) {
-            console.log('hourlyConditions = ', hourlyConditions);
-            let hourlyArray = hourlyConditions.data.hourly_forecast;
-            console.log('hourlyArray = ', hourlyArray);
-            resolve(hourlyArray);
-        })
-        .catch (function(error) {
-            reject(error);
-        });
+            .then(function(hourlyConditions) {
+                console.log('hourlyConditions = ', hourlyConditions);
+                let hourlyArray = hourlyConditions.data.hourly_forecast;
+                console.log('hourlyArray = ', hourlyArray);
+                resolve(hourlyArray);
+            })
+            .catch (function(error) {
+                reject(error);
+            });
         });
     };
 
-    return {getConditions, getHourlyConditions};
+    let getSunPhase = function(coords) {
+        return $q(function(resolve, reject) {
+            $http.get(`http://api.wunderground.com/api/${WeatherCredentials.apiKey}/astronomy/q/${coords}.json`)
+            .then(function(astroObject) {
+                console.log('astroObject = ', astroObject);
+                let sunObject = astroObject.data.sun_phase;
+                console.log('sunObject = ', sunObject);
+                resolve(sunObject);
+            })
+            .catch (function(error) {
+                reject(error);
+            });
+        });
+    };
+
+    return {getConditions, getHourlyConditions, getSunPhase};
 });

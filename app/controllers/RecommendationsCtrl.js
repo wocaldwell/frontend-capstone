@@ -24,6 +24,21 @@ app.controller("RecommendationsCtrl", function($scope, $window, $location, TimeF
         $scope.changeStart = false;
     };
 
+     // lights logic
+    LocationFactory.getGeolocation()
+    .then(function(returnedCoords) {
+        WeatherFactory.getSunPhase(returnedCoords)
+        .then(function(sunData) {
+            let departSunCheck = TimeFactory.getDepartureHour(),
+                returnSunCheck = TimeFactory.getReturnHour();
+            if (parseInt(departSunCheck) <= parseInt(sunData.sunrise.hour) || parseInt(departSunCheck) >= parseInt(sunData.sunset.hour)) {
+                $scope.departLightsMessage = "You will need lights for this journey.";
+            } if (parseInt(returnSunCheck) <= parseInt(sunData.sunrise.hour) || parseInt(returnSunCheck) >= parseInt(sunData.sunset.hour)) {
+                $scope.returnLightsMessage = "Make sure you pack lights, this ride is in the dark.";
+            }
+        });
+    });
+
     // hourly weather logic
     LocationFactory.getGeolocation()
     .then(function(returnedCoords) {
@@ -151,7 +166,6 @@ app.controller("RecommendationsCtrl", function($scope, $window, $location, TimeF
             $scope.mealPack = returnedRecs.regular;
         }
     });
-
 
 
 });
