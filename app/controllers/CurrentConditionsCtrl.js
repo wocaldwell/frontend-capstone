@@ -23,4 +23,16 @@ app.controller("CurrentConditionsCtrl", function($scope, $window, $location, Loc
         });
     });
 
+    LocationFactory.getGeolocation()
+    .then(function(returnedCoords) {
+        WeatherFactory.getDayForecast(returnedCoords)
+        .then(function(dayForcast) {
+            $scope.firstPeriodName = dayForcast[0].title;
+            $scope.firstPeriodText = dayForcast[0].fcttext;
+            $scope.secondPeriodName = dayForcast[1].title;
+            $scope.secondPeriodText = dayForcast[1].fcttext;
+        });
+
+    });
+
 });

@@ -48,5 +48,20 @@ app.factory("WeatherFactory", function($q, $http, WeatherCredentials, LocationFa
         });
     };
 
-    return {getConditions, getHourlyConditions, getSunPhase};
+    let getDayForecast = function(coords) {
+        return $q(function(resolve, reject) {
+            $http.get(`http://api.wunderground.com/api/${WeatherCredentials.apiKey}/forecast/q/${coords}.json`)
+            .then(function(forecastObject) {
+                console.log('forecastObject = ', forecastObject);
+                let dayForecastArray = forecastObject.data.forecast.txt_forecast.forecastday;
+                console.log('dayForecastArray = ', dayForecastArray);
+                resolve(dayForecastArray);
+            })
+            .catch (function(error) {
+                reject(error);
+            });
+        });
+    };
+
+    return {getConditions, getHourlyConditions, getSunPhase, getDayForecast};
 });
