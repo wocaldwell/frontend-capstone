@@ -8,10 +8,13 @@
         <button type="button" class="btn btn-default" ng-click="setDeparture(threeHourButton)">{{threeHourButton}}</button>
     </div>
     <h2>When Are You Coming Back?</h2>
-    <div class="input-group">
-        <input type="text" class="form-control" placeholder="5:00 PM etc." ng-model="returnTime">
+    <!-- <div class="input-group">
+        <input type="text" class="form-control" placeholder="5:00 PM etc." auto-complete ui-items="names" ng-model="returnTime">
         <span class="input-group-btn">
             <button class="btn btn-secondary" type="button" ng-click="goToReccomendations()">Go!</button>
         </span>
+    </div> -->
+    <div uib-timepicker ng-model="userReturnTime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian">
     </div>
+    <button class="btn btn-secondary" type="button" ng-click="goToReccomendations()">Go!</button>
 </div>
