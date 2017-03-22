@@ -12,8 +12,18 @@ app.controller("MoreInfoCtrl", function($scope, $window, $location, TimeFactory,
     $scope.hstep = 1;
     $scope.mstep = 15;
     $scope.ismeridian = true;
-    $scope.userReturnTime = new Date();
+    // $scope.userReturnTime = new Date();
+    $scope.userReturnTime = null;
     console.log('default user return time is ', $scope.userReturnTime);
+
+    // disable go button if to return time is null
+    $scope.goDisabled = function() {
+        if ($scope.userReturnTime !== null) {
+            return false;
+        } else {
+            return true;
+        }
+    };
 
     $scope.setDeparture = function(departureButton) {
         TimeFactory.setDepartureHour(departureButton);
