@@ -1,7 +1,7 @@
 "use strict";
 
 // defining app (remember to assign '"app": true' in your Gruntfile.js in grunt.initConfig under 'Globals"')
-let app = angular.module("ArriveDry", ["ngRoute"]);
+let app = angular.module("ArriveDry", ["ngRoute", "ui.bootstrap"]);
 
 // displaying different routing available with which partial and controller assigned to them
 app.config(function($routeProvider) {
@@ -24,3 +24,15 @@ app.config(function($routeProvider) {
     })
     ;
 });
+// .directive('autoComplete', function($timeout) {
+//     return function(scope, iElement, iAttrs) {
+//             iElement.autocomplete({
+//                 source: scope[iAttrs.uiItems],
+//                 select: function() {
+//                     $timeout(function() {
+//                       iElement.trigger('input');
+//                     }, 0);
+//                 }
+//             });
+//     };
+// });

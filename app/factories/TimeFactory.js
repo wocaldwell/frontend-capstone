@@ -1,18 +1,21 @@
 "use strict";
 
-app.factory("TimeFactory", function($window) {
+app.factory("TimeFactory", function($window, $filter) {
     let currentDate = new Date(),
         currentDay = currentDate.getDate(),
         currentHour = currentDate.getHours(),
         currentMinute = currentDate.getMinutes(),
-        departureHour = String(currentHour),
+        departureHour = $filter("date")(currentDate, "H"),
+        // departureHour = String(currentHour),
         returnHour = "",
         returnTimeString = "";
         console.log('the day is ', currentDay);
 
 
     let setReturnTimeString = function(returnTime) {
-        returnTimeString = returnTime;
+        // returnTimeString = returnTime;
+        returnTimeString = $filter("date")(returnTime, "shortTime");
+        console.log('the return time was set to ', returnTimeString);
         return returnTimeString;
     };
 
@@ -48,17 +51,18 @@ app.factory("TimeFactory", function($window) {
     };
 
     let setReturnHour = function(returnTime) {
-        let timeString = returnTime,
-            temporaryHour = timeString.split(":")[0];
-        if (timeString.includes("P") || timeString.includes("p") && temporaryHour !== "12") {
-            temporaryHour = parseInt(temporaryHour) + 12;
-            temporaryHour = String(temporaryHour);
-        } if (timeString.includes("A") || timeString.includes("a") && temporaryHour === "12") {
-            temporaryHour = parseInt(temporaryHour) - 12;
-            temporaryHour = String(temporaryHour);
-        }
-        returnHour = temporaryHour;
-        console.log('returnHour = ', returnHour);
+        // let timeString = returnTime,
+        //     temporaryHour = timeString.split(":")[0];
+        // if (timeString.includes("P") || timeString.includes("p") && temporaryHour !== "12") {
+        //     temporaryHour = parseInt(temporaryHour) + 12;
+        //     temporaryHour = String(temporaryHour);
+        // } if (timeString.includes("A") || timeString.includes("a") && temporaryHour === "12") {
+        //     temporaryHour = parseInt(temporaryHour) - 12;
+        //     temporaryHour = String(temporaryHour);
+        // }
+        // returnHour = temporaryHour;
+        // console.log('returnHour = ', returnHour);
+        returnHour = $filter("date")(returnTime, "H");
         return returnHour;
     };
 
@@ -69,23 +73,25 @@ app.factory("TimeFactory", function($window) {
 
     let getDepartTimeString = function() {
         currentDate = new Date();
-        let temporaryDepartHour = getDepartureHour(),
+        let temporaryDepartHour = getDepartureHour();
             // temporaryMinutes = 7;
-            temporaryMinutes = currentDate.getMinutes();
-            console.log('temporaryDepartHour in getDepartTimeString is ', temporaryDepartHour);
-            console.log('temporaryMinutes = ', temporaryMinutes);
-        if (temporaryMinutes < 10) {
-            temporaryMinutes = "0" + temporaryMinutes;
-        } if (parseInt(temporaryDepartHour) < 12) {
-            temporaryMinutes = temporaryMinutes + "am";
-        } if (parseInt(temporaryDepartHour) === 12) {
-            temporaryMinutes = temporaryMinutes + "pm";
-        } if (temporaryDepartHour > 12) {
-            temporaryDepartHour = parseInt(temporaryDepartHour) - 12;
-            temporaryDepartHour = String(temporaryDepartHour);
-            temporaryMinutes = temporaryMinutes + "pm";
-        }
-        let departTimeString = temporaryDepartHour + ":" + temporaryMinutes;
+            // temporaryMinutes = currentDate.getMinutes();
+        currentDate.setHours(parseInt(temporaryDepartHour));
+        console.log('temporaryDepartHour in getDepartTimeString is ', temporaryDepartHour);
+        // console.log('temporaryMinutes = ', temporaryMinutes);
+        // if (temporaryMinutes < 10) {
+        //     temporaryMinutes = "0" + temporaryMinutes;
+        // } if (parseInt(temporaryDepartHour) < 12) {
+        //     temporaryMinutes = temporaryMinutes + "am";
+        // } if (parseInt(temporaryDepartHour) === 12) {
+        //     temporaryMinutes = temporaryMinutes + "pm";
+        // } if (temporaryDepartHour > 12) {
+        //     temporaryDepartHour = parseInt(temporaryDepartHour) - 12;
+        //     temporaryDepartHour = String(temporaryDepartHour);
+        //     temporaryMinutes = temporaryMinutes + "pm";
+        // }
+        let departTimeString = $filter("date")(currentDate, "shortTime");
+        // let departTimeString = temporaryDepartHour + ":" + temporaryMinutes;
         return departTimeString;
     };
 

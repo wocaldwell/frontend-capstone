@@ -8,19 +8,29 @@ app.controller("MoreInfoCtrl", function($scope, $window, $location, TimeFactory,
     $scope.threeHourButton = "Three Hours";
     $scope.returnTime = "";
     $scope.userDestination = LocationFactory.getDestination();
+    // stuff for time picker
+    $scope.hstep = 1;
+    $scope.mstep = 15;
+    $scope.ismeridian = true;
+    $scope.userReturnTime = new Date();
+    console.log('default user return time is ', $scope.userReturnTime);
 
     $scope.setDeparture = function(departureButton) {
         TimeFactory.setDepartureHour(departureButton);
     };
 
     $scope.goToReccomendations = function() {
-        console.log('you wrote: ', $scope.returnTime);
+        // console.log('you wrote: ', $scope.returnTime);
+        console.log('the time picker says', $scope.userReturnTime);
         TimeFactory.setDepartureHour();
-        TimeFactory.setReturnHour($scope.returnTime);
-        TimeFactory.setReturnTimeString($scope.returnTime);
+        TimeFactory.setReturnHour($scope.userReturnTime);
+        // TimeFactory.setReturnHour($scope.returnTime);
+        TimeFactory.setReturnTimeString($scope.userReturnTime);
+        // TimeFactory.setReturnTimeString($scope.returnTime);
         $window.location.href = "#!/recommendations";
     };
 
     // LocationFactory.getMyCoords();
+    // $scope.names = ["john", "bill", "charlie", "robert", "alban", "oscar", "marie", "celine", "brad", "drew", "rebecca", "michel", "francis", "jean", "paul", "pierre", "nicolas", "alfred", "gerard", "louis", "albert", "edouard", "benoit", "guillaume", "nicolas", "joseph"];
 
 });
