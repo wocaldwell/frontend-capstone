@@ -1,6 +1,6 @@
 "use strict";
 
-app.factory("LocationFactory", function($window, $q) {
+app.factory("LocationFactory", function($window, $q, $http, GoogleCredentials) {
 
     let myCoords = "",
         destination = "";
@@ -30,6 +30,21 @@ app.factory("LocationFactory", function($window, $q) {
         return destination;
     };
 
-    return {getGeolocation, getMyCoords, setDestination, getDestination};
+    let getTripDistance = function(startLocation, endLocation) {
+        return $q(function(resolve, reject) {
+            $http.get(`https://maps.googleapis.com/maps/api/distancematrix/json?origins=${startLocation}&destinations=${endLocation}&mode=bicycling&key=${GoogleCredentials.apiKey}`)
+            .then(function(returnedMatrix) {
+                console.log('returnedMatrix = ', returnedMatrix);
+                let distanceObject = returnedMatrix.data.current_observation;
+                console.log('distanceObject = ', distanceObject);
+                resolve(distanceObject);
+            })
+            .catch (function(error) {
+                reject(error);
+            });
+        });
+    };
+
+    return {getGeolocation, getMyCoords, setDestination, getDestination, getTripDistance};
 
 });
