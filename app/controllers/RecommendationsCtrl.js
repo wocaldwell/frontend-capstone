@@ -17,11 +17,16 @@ app.controller("RecommendationsCtrl", function($scope, $window, $location, TimeF
         $scope.changeStart = true;
     };
 
-    $scope.newStartingLocation = function() {
-
+    $scope.changeStartingLocation = function() {
         // console.log('you clicked go. . . ');
         $scope.startingLocation = "your starting location of " + $scope.newStartAddress;
         $scope.changeStart = false;
+        LocationFactory.setNewStartLocation($scope.newStartAddress);
+        LocationFactory.getTripDistance(LocationFactory.getNewStartLocationSeperated(), LocationFactory.getDestinationSeperated())
+        .then(function(trip) {
+            $scope.tripDuration = trip.duration.text;
+            $scope.tripDistance = trip.distance.text;
+        });
     };
 
      // lights logic
@@ -170,6 +175,16 @@ app.controller("RecommendationsCtrl", function($scope, $window, $location, TimeF
         } if ($scope.dayLength >= 6 && $scope.dayLength <= 8) {
             $scope.mealPack = returnedRecs.regular;
         }
+    });
+
+    // getting distance and duration based on current location (default)
+    LocationFactory.getGeolocation()
+    .then(function(returnedCoords) {
+        LocationFactory.getTripDistance(returnedCoords, LocationFactory.getDestinationSeperated())
+        .then(function(trip) {
+            $scope.tripDuration = trip.duration.text;
+            $scope.tripDistance = trip.distance.text;
+        });
     });
 
 
