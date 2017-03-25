@@ -32,10 +32,10 @@ app.factory("LocationFactory", function($window, $q, $http, GoogleCredentials) {
 
     let getTripDistance = function(startLocation, endLocation) {
         return $q(function(resolve, reject) {
-            $http.get(`https://maps.googleapis.com/maps/api/distancematrix/json?origins=${startLocation}&destinations=${endLocation}&mode=bicycling&key=${GoogleCredentials.apiKey}`)
+            $http.get(` https://arrivedry.herokuapp.com/api/distancematrix/json?units=imperial&origins=${startLocation}&destinations=${endLocation}&mode=bicycling&key=${GoogleCredentials.apiKey}`)
             .then(function(returnedMatrix) {
                 console.log('returnedMatrix = ', returnedMatrix);
-                let distanceObject = returnedMatrix.data.current_observation;
+                let distanceObject = returnedMatrix.data.rows[0].elements[0];
                 console.log('distanceObject = ', distanceObject);
                 resolve(distanceObject);
             })
