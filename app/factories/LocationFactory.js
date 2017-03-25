@@ -3,7 +3,8 @@
 app.factory("LocationFactory", function($window, $q, $http, GoogleCredentials) {
 
     let myCoords = "",
-        destination = "";
+        destination = "",
+        newStartLocation = "";
 
     let getGeolocation = function() {
         return $q(function(resolve, reject) {
@@ -30,6 +31,38 @@ app.factory("LocationFactory", function($window, $q, $http, GoogleCredentials) {
         return destination;
     };
 
+    let getDestinationSeperated = function () {
+        let destinationInput = getDestination(),
+            // tempDestination = "";
+        // console.log('the length of destinationInput = ', destinationInput.length);
+        // for (let i = 0; i < destinationInput.length; i++) {
+        //     if (destinationInput[i] !== "." || destinationInput[i] !== ",") {
+        //         tempDestination += destinationInput[i];
+        //     }
+        // }
+        // console.log('tempDestination = ', tempDestination);
+            destinationSeperated = destinationInput.replace(/ /g, "+");
+        console.log('destinationSeperated = ', destinationSeperated);
+        return destinationSeperated;
+    };
+
+    let setNewStartLocation = function(newStart) {
+        newStartLocation = newStart;
+        console.log('your new start is: ', newStartLocation);
+        return newStartLocation;
+    };
+
+    let getNewStartLocation = function() {
+        return newStartLocation;
+    };
+
+    let getNewStartLocationSeperated = function() {
+        let LocationInput = getNewStartLocation(),
+            NewStartLocationSeperated = LocationInput.replace(/ /g, "+");
+        console.log('NewStartLocationSeperated = ', NewStartLocationSeperated);
+        return NewStartLocationSeperated;
+    };
+
     let getTripDistance = function(startLocation, endLocation) {
         return $q(function(resolve, reject) {
             $http.get(` https://arrivedry.herokuapp.com/api/distancematrix/json?units=imperial&origins=${startLocation}&destinations=${endLocation}&mode=bicycling&key=${GoogleCredentials.apiKey}`)
@@ -45,6 +78,15 @@ app.factory("LocationFactory", function($window, $q, $http, GoogleCredentials) {
         });
     };
 
-    return {getGeolocation, getMyCoords, setDestination, getDestination, getTripDistance};
+    return {
+        getGeolocation,
+        getMyCoords,
+        setDestination,
+        getDestination,
+        getTripDistance,
+        getDestinationSeperated,
+        setNewStartLocation,
+        getNewStartLocationSeperated
+    };
 
 });

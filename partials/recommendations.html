@@ -4,11 +4,13 @@
     <div class="input-group" ng-show="changeStart">
         <input type="text" class="form-control" placeholder="123 Example Ln. Any Town, ST 45678" ng-model="newStartAddress">
         <span class="input-group-btn">
-            <button class="btn btn-secondary" type="button" ng-click="newStartingLocation()">Go!</button>
+            <button class="btn btn-secondary" type="button" ng-click="changeStartingLocation()">Go!</button>
         </span>
     </div>
 
     <h4>For your ride to {{userDestination}} at about {{departTimeFull}}</h4>
+    <h5>Ride Distance: <strong>{{tripDistance}}</strong></h5>
+    <h5>Ride Duration: <strong>{{tripDuration}}</strong></h5>
     <h5>Temperature:<strong> {{departTemperature}}</strong></h5>
     <h5>Forecast:<strong> {{departForecast}}</strong></h5>
     <h5>Wind:<strong> {{departWindDirection}} at {{departWindSpeed}}mph</strong></h5>
