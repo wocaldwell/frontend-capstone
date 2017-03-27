@@ -1,51 +1,54 @@
-<div class="col-xs-6">
-    <h4>Based on {{startingLocation}}:</h4>
-    <a ng-click="showChangeAddress()">Change starting location</a>
-    <div class="input-group" ng-show="changeStart">
-        <input type="text" class="form-control" placeholder="123 Example Ln. Any Town, ST 45678" ng-model="newStartAddress">
-        <span class="input-group-btn">
-            <button class="btn btn-secondary" type="button" ng-click="changeStartingLocation()">Go!</button>
-        </span>
+<img src="../images/loading-bikes.gif" ng-show="showWheel">
+<div ng-show="showPage">
+    <div class="col-xs-6">
+        <h4>Based on {{startingLocation}}:</h4>
+        <a ng-click="showChangeAddress()">Change starting location</a>
+        <div class="input-group" ng-show="changeStart">
+            <input type="text" class="form-control" placeholder="123 Example Ln. Any Town, ST 45678" ng-model="newStartAddress">
+            <span class="input-group-btn">
+                <button class="btn btn-secondary" type="button" ng-click="changeStartingLocation()">Go!</button>
+            </span>
+        </div>
+
+        <h4>For your ride to {{userDestination}} at about {{departTimeFull}}</h4>
+        <h5>Ride Distance: <strong>{{tripDistance}}</strong></h5>
+        <h5>Ride Duration: <strong>{{tripDuration}}</strong></h5>
+        <h5>Temperature:<strong> {{departTemperature}}</strong></h5>
+        <h5>Forecast:<strong> {{departForecast}}</strong></h5>
+        <h5>Wind:<strong> {{departWindDirection}} at {{departWindSpeed}}mph</strong></h5>
+        <p><strong>{{departLightsMessage}}</strong> {{departHeatSentence}} The chance for precipitation is {{departPrecipitation}} so <strong>{{departWetSentence}}</strong>. Since your time away is  about {{dayLength}} hours <strong>{{mealPack}}</strong>.</p>
+
+
+        <h4>For your return ride at {{returnTimeFull}}</h4>
+        <h5>Temperature:<strong> {{returnTemperature}}</strong></h5>
+        <h5>Forecast:<strong> {{returnForecast}}</strong></h5>
+        <h5>Wind:<strong> {{returnWindDirection}} at {{returnWindSpeed}}mph</strong></h5>
+        <p><strong>{{returnLightsMessage}}</strong> {{returnHeatSentence}} The chance for precipitation is {{returnPrecipitation}} so <strong>{{returnWetSentence}}</strong>.</p>
+
     </div>
-
-    <h4>For your ride to {{userDestination}} at about {{departTimeFull}}</h4>
-    <h5>Ride Distance: <strong>{{tripDistance}}</strong></h5>
-    <h5>Ride Duration: <strong>{{tripDuration}}</strong></h5>
-    <h5>Temperature:<strong> {{departTemperature}}</strong></h5>
-    <h5>Forecast:<strong> {{departForecast}}</strong></h5>
-    <h5>Wind:<strong> {{departWindDirection}} at {{departWindSpeed}}mph</strong></h5>
-    <p><strong>{{departLightsMessage}}</strong> {{departHeatSentence}} The chance for precipitation is {{departPrecipitation}} so <strong>{{departWetSentence}}</strong>. Since your time away is  about {{dayLength}} hours <strong>{{mealPack}}</strong>.</p>
-
-
-    <h4>For your return ride at {{returnTimeFull}}</h4>
-    <h5>Temperature:<strong> {{returnTemperature}}</strong></h5>
-    <h5>Forecast:<strong> {{returnForecast}}</strong></h5>
-    <h5>Wind:<strong> {{returnWindDirection}} at {{returnWindSpeed}}mph</strong></h5>
-    <p><strong>{{returnLightsMessage}}</strong> {{returnHeatSentence}} The chance for precipitation is {{returnPrecipitation}} so <strong>{{returnWetSentence}}</strong>.</p>
-
-</div>
-<div class="container" ng-controller="CurrentConditionsCtrl">
-    <div class="row">
-        <div class="col-xs-6">
-            <div class="item" >
-                <div class="well text-center">
-                    <h5>Current Conditions</h5>
-                    <a href="https://www.wunderground.com/wundermap?lat={{locationLat}}&lon={{locationLon}}&radar=1" target="_blank"><img class="card-img-top pin-image" src="http://api.wunderground.com/api/{{apiKey}}/animatedradar/animatedsatellite/q/{{locationLat}},{{locationLon}}.gif?num=8&delay=50&interval=30" alt="weather radar"></a><br>
-                    <a href="https://www.wunderground.com/cgi-bin/findweather/getForecast?query={{locationCity}}%2C+{{locationState}}" target="_blank"><div class="row">
-                        <div class="col">
-                            <img class="img-thumbnail" src="{{icon}}" alt="{{weather}}">
-                            <p>{{weather}}</p>
-                        </div>
-                        <div class="col">
-                            <h2><strong>{{temperature}}</strong> &deg;F</h2>
-                            <p>Feels like <strong>{{feelsLikeTemperature}}</strong></p>
-                        </div>
-                        <p>Wind is {{wind}}</p>
-                    </div></a><hr>
-                    <h4>{{firstPeriodName}}:</h4>
-                    <p>{{firstPeriodText}}</p>
-                    <h4>{{secondPeriodName}}:</h4>
-                    <p>{{secondPeriodText}}</p>
+    <div class="container" ng-controller="CurrentConditionsCtrl">
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="item" >
+                    <div class="well text-center">
+                        <h5>Current Conditions</h5>
+                        <a href="https://www.wunderground.com/wundermap?lat={{locationLat}}&lon={{locationLon}}&radar=1" target="_blank"><img class="card-img-top pin-image" src="http://api.wunderground.com/api/{{apiKey}}/animatedradar/animatedsatellite/q/{{locationLat}},{{locationLon}}.gif?num=8&delay=50&interval=30" alt="weather radar"></a><br>
+                        <a href="https://www.wunderground.com/cgi-bin/findweather/getForecast?query={{locationCity}}%2C+{{locationState}}" target="_blank"><div class="row">
+                            <div class="col">
+                                <img class="img-thumbnail" src="{{icon}}" alt="{{weather}}">
+                                <p>{{weather}}</p>
+                            </div>
+                            <div class="col">
+                                <h2><strong>{{temperature}}</strong> &deg;F</h2>
+                                <p>Feels like <strong>{{feelsLikeTemperature}}</strong></p>
+                            </div>
+                            <p>Wind is {{wind}}</p>
+                        </div></a><hr>
+                        <h4>{{firstPeriodName}}:</h4>
+                        <p>{{firstPeriodText}}</p>
+                        <h4>{{secondPeriodName}}:</h4>
+                        <p>{{secondPeriodText}}</p>
+                    </div>
                 </div>
             </div>
         </div>

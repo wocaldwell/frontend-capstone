@@ -9,6 +9,8 @@ app.controller("RecommendationsCtrl", function($scope, $window, $location, TimeF
     $scope.returnTimeFull = TimeFactory.getReturnTimeString();
     $scope.departTimeFull = TimeFactory.getDepartTimeString();
     $scope.dayLength = TimeFactory.getTimeBetweenRides();
+    $scope.showPage = false;
+    $scope.showWheel = true;
 
 
 
@@ -184,6 +186,8 @@ app.controller("RecommendationsCtrl", function($scope, $window, $location, TimeF
         .then(function(trip) {
             $scope.tripDuration = trip.duration.text;
             $scope.tripDistance = trip.distance.text;
+            $scope.showPage = true;
+            $scope.showWheel = false;
         });
     });
 
