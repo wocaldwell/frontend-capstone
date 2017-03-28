@@ -1,10 +1,12 @@
-
 <div class="container">
+    <img src="../images/loading-bikes.gif" ng-show="showWheel">
+</div>
+<div class="container" ng-show="showCurrentConditions">
     <div class="row">
         <div ng-include="'partials/moreInfo.html'"></div>
         <div class="col-xs-6">
             <div class="item" >
-                <div class="well text-center">
+                <div class="well text-center" ng-show="showCurrentConditions">
                     <h5>Current Conditions</h5>
                     <a href="https://www.wunderground.com/wundermap?lat={{locationLat}}&lon={{locationLon}}&radar=1" target="_blank"><img class="card-img-top pin-image" src="http://api.wunderground.com/api/{{apiKey}}/animatedradar/animatedsatellite/q/{{locationLat}},{{locationLon}}.gif?num=8&delay=50&interval=30" alt="weather radar"></a><br>
                     <a href="https://www.wunderground.com/cgi-bin/findweather/getForecast?query={{locationCity}}%2C+{{locationState}}" target="_blank"><div class="row">

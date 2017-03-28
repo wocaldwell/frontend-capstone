@@ -22,17 +22,8 @@ app.config(function($routeProvider) {
         templateUrl: "partials/recommendations.html",
         controller: "RecommendationsCtrl"
     })
-    ;
+    .when("/essentials", {
+        templateUrl: "partials/essentials.html",
+        controller: "EssentialsCtrl"
+    });
 });
-// .directive('autoComplete', function($timeout) {
-//     return function(scope, iElement, iAttrs) {
-//             iElement.autocomplete({
-//                 source: scope[iAttrs.uiItems],
-//                 select: function() {
-//                     $timeout(function() {
-//                       iElement.trigger('input');
-//                     }, 0);
-//                 }
-//             });
-//     };
-// });

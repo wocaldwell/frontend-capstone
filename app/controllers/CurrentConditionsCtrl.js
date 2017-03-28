@@ -3,6 +3,8 @@
 app.controller("CurrentConditionsCtrl", function($scope, $window, $location, LocationFactory, WeatherFactory, WeatherCredentials, $routeParams) {
 
     $scope.apiKey = WeatherCredentials.apiKey;
+    $scope.showCurrentConditions = false;
+    $scope.showWheel = true;
 
 
     LocationFactory.getGeolocation()
@@ -20,6 +22,8 @@ app.controller("CurrentConditionsCtrl", function($scope, $window, $location, Loc
             $scope.wind = conditions.wind_string;
             $scope.locationCity = conditions.display_location.city;
             $scope.locationState = conditions.display_location.state;
+            $scope.showCurrentConditions = true;
+            $scope.showWheel = false;
         });
     });
 
