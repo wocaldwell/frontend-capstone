@@ -3,7 +3,8 @@
 app.controller("CurrentConditionsCtrl", function($scope, $window, $location, LocationFactory, WeatherFactory, WeatherCredentials, $routeParams) {
 
     $scope.apiKey = WeatherCredentials.apiKey;
-    $scope.showCurrentConditions = false;
+    $scope.apiRef = WeatherCredentials.apiRef;
+    // $scope.showCurrentConditions = true;
     $scope.showWheel = true;
 
 
@@ -15,15 +16,17 @@ app.controller("CurrentConditionsCtrl", function($scope, $window, $location, Loc
             console.log('The conditions object is: ', conditions);
             $scope.locationLat = conditions.display_location.latitude;
             $scope.locationLon = conditions.display_location.longitude;
-            $scope.icon = `https://icons.wxug.com/i/c/i/${iconText}.gif`;
+            $scope.icon = `https://icons.wxug.com/i/c/j/${iconText}.gif`;
             $scope.weather = conditions.weather;
             $scope.temperature = conditions.temp_f;
             $scope.feelsLikeTemperature = conditions.feelslike_f;
             $scope.wind = conditions.wind_string;
+            $scope.windDegrees = conditions.wind_degrees;
             $scope.locationCity = conditions.display_location.city;
             $scope.locationState = conditions.display_location.state;
-            $scope.showCurrentConditions = true;
+            // $scope.showCurrentConditions = true;
             $scope.showWheel = false;
+            $("#conditions-page-view").removeClass("blur");
         });
     });
 
@@ -36,7 +39,6 @@ app.controller("CurrentConditionsCtrl", function($scope, $window, $location, Loc
             $scope.secondPeriodName = dayForcast[1].title;
             $scope.secondPeriodText = dayForcast[1].fcttext;
         });
-
     });
 
 });

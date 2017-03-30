@@ -5,13 +5,17 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>ArriveDry</title>
         <link rel="stylesheet" type="text/css" href="lib/node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="app/css/weather-icons.min.css">
+        <link rel="stylesheet" href="app/css/weather-icons-wind.min.css">
         <link rel="stylesheet" href="app/css/main.css">
     </head>
     <body>
 
         <div ng-include="'partials/navbar.html'"></div>
+        <!-- <div ng-include="'partials/background.html'"></div> -->
 
-        <div ng-view></div>
+        <div id="view-div" ng-view></div>
 
         <!--third party js-->
         <script type="text/javascript" src="lib/node_modules/jquery/dist/jquery.min.js"></script>

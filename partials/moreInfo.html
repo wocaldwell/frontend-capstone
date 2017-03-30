@@ -1,20 +1,39 @@
-<div class="col-xs-6" ng-controller="MoreInfoCtrl">
-    <h4>Your Destination: {{userDestination}}</h4>
-    <h2>When Are You Leaving?</h2>
-    <div class="btn-group-vertical" role="group" aria-label="">
-        <!-- <button type="button" class="btn btn-default" ng-click="setDeparture(nowButton)">{{nowButton}}</button> -->
+<div class="col-sm-6" ng-controller="MoreInfoCtrl">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">Your Destination:</h4>
+        </div>
+        <div class="panel-body">
+            {{userDestination}}
+        </div>
+    </div>
+    <!-- <h4>Your Destination: {{userDestination}}</h4> -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title">When Are You Leaving?</h2>
+        </div>
+            <div id="leave-buttons" class="btn-group-vertical panel-body" role="group" aria-label="">
+                <button type="button" class="btn btn-default" ng-click="setDeparture(oneHourButton)">{{oneHourButton}}</button>
+                <button type="button" class="btn btn-default" ng-click="setDeparture(twoHourButton)">{{twoHourButton}}</button>
+                <button type="button" class="btn btn-default" ng-click="setDeparture(threeHourButton)">{{threeHourButton}}</button>
+            </div>
+    </div>
+  <!--   <h2>When Are You Leaving?</h2>
+    <div id="leave-buttons" class="btn-group-vertical" role="group" aria-label="">
         <button type="button" class="btn btn-default" ng-click="setDeparture(oneHourButton)">{{oneHourButton}}</button>
         <button type="button" class="btn btn-default" ng-click="setDeparture(twoHourButton)">{{twoHourButton}}</button>
         <button type="button" class="btn btn-default" ng-click="setDeparture(threeHourButton)">{{threeHourButton}}</button>
-    </div>
-    <h2>When Are You Coming Back?</h2>
-    <!-- <div class="input-group">
-        <input type="text" class="form-control" placeholder="5:00 PM etc." auto-complete ui-items="names" ng-model="returnTime">
-        <span class="input-group-btn">
-            <button class="btn btn-secondary" type="button" ng-click="goToReccomendations()">Go!</button>
-        </span>
     </div> -->
-    <div uib-timepicker ng-model="userReturnTime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title">When Are You Coming Back?</h2>
+        </div>
+        <div id="time-picker" class="panel-body" uib-timepicker ng-model="userReturnTime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian" mousewheel="false">
+        </div>
+        <!-- <button id="more-info-button" class="btn btn-secondary panel-footer" type="button" ng-click="goToReccomendations()" ng-disabled="goDisabled()">Go!</button> -->
     </div>
-    <button class="btn btn-secondary" type="button" ng-click="goToReccomendations()" ng-disabled="goDisabled()">Go!</button>
+    <!-- <h2>When Are You Coming Back?</h2>
+    <div id="time-picker" uib-timepicker ng-model="userReturnTime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian" mousewheel="false">
+    </div> -->
+    <button id="more-info-button" class="btn btn-secondary" type="button" ng-click="goToReccomendations()" ng-disabled="goDisabled()">Go!</button>
 </div>

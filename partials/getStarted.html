@@ -1,13 +1,16 @@
-<div class="row">
-    <div class="container-fluid">
-        <div class="col-lg-6">
-            <h5>A bicycle commuter app. Enter a destination and we'll make it easier for you to ArriveDry!</h5>
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="123 Example Ln. Any Town, ST 45678" ng-model="userDestination">
-                <span class="input-group-btn">
-                    <button class="btn btn-secondary" type="button" ng-click="goToConditions()">Go!</button>
-                </span>
-            </div>
+<div ng-include="'partials/background.html'"></div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <h3>A bicycle commuter app</h3>
         </div>
+    </div>
+    <h5>Enter a destination and we'll make it easier for you to ArriveDry!</h5>
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="123 Example Ln Any Town ST" ng-model="userDestination">
+        <span class="input-group-btn">
+            <button class="btn btn-secondary" type="button" ng-click="goToConditions()">Go!</button>
+        </span>
     </div>
 </div>

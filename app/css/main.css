@@ -1,4 +1,64 @@
 * {
   border-radius: 0 !important; }
 
+#view-div {
+  padding-top: 105px; }
+
+#nav-logo {
+  height: 30px; }
+
+#nav-container {
+  width: 95%; }
+
+#more-info-button,
+#leave-buttons,
+#time-picker,
+.uib-time input {
+  width: 100%; }
+
+#more-info-button {
+  height: 50px;
+  margin-bottom: 20px; }
+
+.radar-gif {
+  margin: 20px; }
+
+.img-thumbnail {
+  border: none; }
+
+.temp-big {
+  font-size: 3em;
+  margin-top: 0px; }
+
+i {
+  font-size: 48px; }
+
+.loading-screen {
+  position: fixed;
+  top: 150px;
+  width: 100%;
+  z-index: 9; }
+
+.spinning-wheel {
+  height: 200px;
+  opacity: 0.5; }
+
+.blur {
+  -webkit-filter: blur(3px);
+  /* Chrome, Safari, Opera */
+  filter: blur(3px); }
+
+#uni-arrow {
+  font-size: 48px;
+  margin: 0 5px; }
+
+.background-box {
+  position: fixed;
+  width: 100%;
+  z-index: -1; }
+
+.background-logo {
+  height: 500px;
+  opacity: 0.2; }
+
 /*# sourceMappingURL=main.css.map */

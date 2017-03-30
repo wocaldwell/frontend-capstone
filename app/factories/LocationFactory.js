@@ -68,7 +68,7 @@ app.factory("LocationFactory", function($window, $q, $http, GoogleCredentials) {
             $http.get(` https://arrivedry.herokuapp.com/api/distancematrix/json?units=imperial&origins=${startLocation}&destinations=${endLocation}&mode=bicycling&key=${GoogleCredentials.apiKey}`)
             .then(function(returnedMatrix) {
                 console.log('returnedMatrix = ', returnedMatrix);
-                let distanceObject = returnedMatrix.data.rows[0].elements[0];
+                let distanceObject = returnedMatrix.data;
                 console.log('distanceObject = ', distanceObject);
                 resolve(distanceObject);
             })

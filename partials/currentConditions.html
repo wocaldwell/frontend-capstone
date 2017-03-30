@@ -1,25 +1,43 @@
-<div class="container">
-    <img src="../images/loading-bikes.gif" ng-show="showWheel">
+<div class="container text-center loading-screen">
+    <img class="spinning-wheel" src="../images/loading-bikes.gif" ng-show="showWheel">
 </div>
-<div class="container" ng-show="showCurrentConditions">
+
+<div ng-include="'partials/background.html'"></div>
+
+<div id="conditions-page-view" class="container blur">
     <div class="row">
         <div ng-include="'partials/moreInfo.html'"></div>
-        <div class="col-xs-6">
-            <div class="item" >
-                <div class="well text-center" ng-show="showCurrentConditions">
-                    <h5>Current Conditions</h5>
-                    <a href="https://www.wunderground.com/wundermap?lat={{locationLat}}&lon={{locationLon}}&radar=1" target="_blank"><img class="card-img-top pin-image" src="http://api.wunderground.com/api/{{apiKey}}/animatedradar/animatedsatellite/q/{{locationLat}},{{locationLon}}.gif?num=8&delay=50&interval=30" alt="weather radar"></a><br>
-                    <a href="https://www.wunderground.com/cgi-bin/findweather/getForecast?query={{locationCity}}%2C+{{locationState}}" target="_blank"><div class="row">
-                        <div class="col">
+        <div class="col-sm-6">
+            <div class="panel panel-default text-center">
+                <div class="panel-heading">
+                    <h5 class="panel-title">Current Conditions</h5>
+                    <a href="https://www.wunderground.com/wundermap?apiref={{apiRef}}&lat={{locationLat}}&lon={{locationLon}}&radar=1" target="_blank"><img class="card-img-top pin-image radar-gif" src="http://api.wunderground.com/api/{{apiKey}}/animatedradar/animatedsatellite/q/{{locationLat}},{{locationLon}}.gif?num=8&delay=50&interval=30" alt="weather radar"></a>
+                </div>
+                <a href="https://www.wunderground.com/cgi-bin/findweather/getForecast?apiref={{apiRef}}&query={{locationCity}}%2C+{{locationState}}" target="_blank"><div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-4">
                             <img class="img-thumbnail" src="{{icon}}" alt="{{weather}}">
+                        </div>
+                        <div class="col-xs-4">
+                            <h2 class="temp-big"><strong>{{temperature}}</strong> &deg;F</h2>
+                        </div>
+                        <div class="col-xs-4">
+                            <i class="wi wi-wind from-{{windDegrees}}-deg"></i>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
                             <p>{{weather}}</p>
                         </div>
-                        <div class="col">
-                            <h2><strong>{{temperature}}</strong> &deg;F</h2>
+                        <div class="col-xs-4">
                             <p>Feels like <strong>{{feelsLikeTemperature}}</strong></p>
                         </div>
-                        <p>Wind is {{wind}}</p>
-                    </div></a><hr>
+                        <div class="col-xs-4">
+                            <p>Wind is {{wind}}</p>
+                        </div>
+                    </div>
+                </div></a>
+                <div class="panel-footer">
                     <h4>{{firstPeriodName}}:</h4>
                     <p>{{firstPeriodText}}</p>
                     <h4>{{secondPeriodName}}:</h4>
@@ -29,3 +47,4 @@
         </div>
     </div>
 </div>
+
