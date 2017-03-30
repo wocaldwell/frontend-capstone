@@ -9,7 +9,7 @@ app.controller("RecommendationsCtrl", function($scope, $window, $location, TimeF
     $scope.returnTimeFull = TimeFactory.getReturnTimeString();
     $scope.departTimeFull = TimeFactory.getDepartTimeString();
     $scope.dayLength = TimeFactory.getTimeBetweenRides();
-    $scope.showPage = false;
+    // $scope.showPage = false;
     $scope.showWheel = true;
 
 
@@ -26,8 +26,9 @@ app.controller("RecommendationsCtrl", function($scope, $window, $location, TimeF
         LocationFactory.setNewStartLocation($scope.newStartAddress);
         LocationFactory.getTripDistance(LocationFactory.getNewStartLocationSeperated(), LocationFactory.getDestinationSeperated())
         .then(function(trip) {
-            $scope.tripDuration = trip.duration.text;
-            $scope.tripDistance = trip.distance.text;
+            $scope.tripDuration = trip.rows[0].elements[0].duration.text;
+            $scope.tripDistance = trip.rows[0].elements[0].distance.text;
+            $scope.tripOrigin = trip.origin_addresses[0];
         });
     };
 
@@ -184,10 +185,13 @@ app.controller("RecommendationsCtrl", function($scope, $window, $location, TimeF
     .then(function(returnedCoords) {
         LocationFactory.getTripDistance(returnedCoords, LocationFactory.getDestinationSeperated())
         .then(function(trip) {
-            $scope.tripDuration = trip.duration.text;
-            $scope.tripDistance = trip.distance.text;
-            $scope.showPage = true;
+            $scope.tripDuration = trip.rows[0].elements[0].duration.text;
+            $scope.tripDistance = trip.rows[0].elements[0].distance.text;
+            $scope.tripOrigin = trip.origin_addresses[0];
+            $scope.tripDestination = trip.destination_addresses[0];
+            // $scope.showPage = true;
             $scope.showWheel = false;
+            $("#recs-page-view").removeClass("blur");
         });
     });
 

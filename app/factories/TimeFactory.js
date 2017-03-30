@@ -100,7 +100,7 @@ app.factory("TimeFactory", function($window, $filter) {
             backTime = getReturnHour(),
             timeBetweenRides = backTime - startTime;
         if (parseInt(backTime) < parseInt(startTime)) {
-            timeBetweenRides = parseInt(backTime) + parseInt(startTime);
+            timeBetweenRides = 24 - (parseInt(startTime) - parseInt(backTime));
             timeBetweenRides = String(timeBetweenRides);
         }
         console.log('Your workday is approx.', timeBetweenRides, ' hours long.');
