@@ -1,25 +1,55 @@
-// remove bootstrap rounded corners  //
-* {                                  //
-    border-radius: 0 !important;     //
-}                                    //
-///////////////////////////////////////
+// remove bootstrap rounded corners ///////////////
+* {
+    border-radius: 0 !important;
+}
 
-// adjusting "body" for fixed navbar //
-#view-div {                          //
-    padding-top: 105px;              //
-}                                    //
-///////////////////////////////////////
+// adjusting "body" for fixed navbar /////////////
+#view-div {
+    padding-top: 105px;
+}
 
-// nav styling
+// nav styling ///////////////////////////////////
 #nav-logo {
-    height: 30px;
+    height: 50px;
 }
 
 #nav-container {
     width: 95%;
 }
 
-// more info partial styling
+.navbar-brand {
+    padding: 0 15px;
+}
+
+.navbar-header:hover {
+    background-color: #fff !important;
+}
+
+.nav-link:hover {
+    background-color: red !important;
+    cursor: pointer;
+}
+
+// background styling ///////////////////////////
+.background-box {
+    position: fixed;
+    width: 100%;
+    z-index: -1;
+}
+
+.background-logo {
+    height: 500px;
+    opacity: 0.2;
+}
+
+// button hover /////////////////////////////////
+.btn:hover,
+.list-group-item:hover {
+    color: #fff !important;
+    background-color: red !important;
+}
+
+// more info partial styling ////////////////////
 #more-info-button,
 #leave-buttons,
 #time-picker,
@@ -33,7 +63,7 @@
 }
 
 
-// current conditions styling
+// current conditions styling ///////////////////
 .radar-gif {
     margin: 20px;
 }
@@ -51,7 +81,7 @@ i {
     font-size: 48px;
 }
 
-// loading screen styling
+// loading screen styling ///////////////////////
 .loading-screen {
     position: fixed;
     top: 150px;
@@ -71,20 +101,8 @@ i {
   filter: blur(3px);
 }
 
-// recommendations partial styling
+// recommendations partial styling //////////////
 #uni-arrow {
     font-size: 48px;
     margin: 0 5px;
-}
-
-// get started partial styling
-.background-box {
-    position: fixed;
-    width: 100%;
-    z-index: -1;
-}
-
-.background-logo {
-    height: 500px;
-    opacity: 0.2;
 }

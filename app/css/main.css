@@ -5,10 +5,34 @@
   padding-top: 105px; }
 
 #nav-logo {
-  height: 30px; }
+  height: 50px; }
 
 #nav-container {
   width: 95%; }
+
+.navbar-brand {
+  padding: 0 15px; }
+
+.navbar-header:hover {
+  background-color: #fff !important; }
+
+.nav-link:hover {
+  background-color: red !important;
+  cursor: pointer; }
+
+.background-box {
+  position: fixed;
+  width: 100%;
+  z-index: -1; }
+
+.background-logo {
+  height: 500px;
+  opacity: 0.2; }
+
+.btn:hover,
+.list-group-item:hover {
+  color: #fff !important;
+  background-color: red !important; }
 
 #more-info-button,
 #leave-buttons,
@@ -51,14 +75,5 @@ i {
 #uni-arrow {
   font-size: 48px;
   margin: 0 5px; }
-
-.background-box {
-  position: fixed;
-  width: 100%;
-  z-index: -1; }
-
-.background-logo {
-  height: 500px;
-  opacity: 0.2; }
 
 /*# sourceMappingURL=main.css.map */
