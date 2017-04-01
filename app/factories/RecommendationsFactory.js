@@ -42,5 +42,18 @@ app.factory("RecommendationsFactory", function($q, $http, FirebaseCredentials) {
         });
     };
 
-    return{getMealRecommendations, getHeatRecommendations, getWetRecomendations};
+    let getGearRecommendations = function() {
+        return $q(function(resolve, reject) {
+            $http.get(`${FirebaseCredentials.databaseURL}/gear.json`)
+            .then(function(returnedRecs) {
+                let gearObject = returnedRecs.data;
+                resolve(gearObject);
+            })
+            .catch (function(error) {
+                reject(error);
+            });
+        });
+    };
+
+    return{getMealRecommendations, getHeatRecommendations, getWetRecomendations, getGearRecommendations};
 });

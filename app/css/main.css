@@ -14,7 +14,7 @@
   padding: 0 15px; }
 
 .navbar-header:hover {
-  background-color: #fff !important; }
+  background-color: #999 !important; }
 
 .nav-link:hover {
   background-color: red !important;
@@ -75,5 +75,26 @@ i {
 #uni-arrow {
   font-size: 48px;
   margin: 0 5px; }
+
+.gear-buttons {
+  width: 100%; }
+
+.gear-body {
+  padding: 0; }
+
+.gear-row a:hover {
+  color: #fff !important;
+  background-color: red !important; }
+.gear-row .caret {
+  float: right;
+  color: red; }
+.gear-row button {
+  text-align: left; }
+
+.left-col {
+  padding-right: 0; }
+
+.right-col {
+  padding-left: 0; }
 
 /*# sourceMappingURL=main.css.map */

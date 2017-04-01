@@ -22,7 +22,7 @@
 }
 
 .navbar-header:hover {
-    background-color: #fff !important;
+    background-color: #999 !important;
 }
 
 .nav-link:hover {
@@ -105,4 +105,33 @@ i {
 #uni-arrow {
     font-size: 48px;
     margin: 0 5px;
+}
+
+// essentials partial styling ///////////////////
+.gear-buttons {
+    width: 100%;
+}
+
+.gear-body {
+    padding: 0;
+}
+
+.gear-row {
+    a:hover {
+        color: #fff !important;
+        background-color: red !important;
+    }
+    .caret {
+        float: right;
+        color: red;
+    }
+    button {text-align: left;}
+}
+
+.left-col {
+    padding-right: 0;
+}
+
+.right-col {
+    padding-left: 0;
 }
