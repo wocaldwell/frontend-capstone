@@ -6,34 +6,68 @@
             <h3>Commuter essentials</h3>
         </div>
     </div>
-    <h5>Essential gear that will help you ArriveDry and other stuff too!</h5>
-    <div class="row">
+    <h5>There is no wrong way to commute but this gear will help you ArriveDry and other stuff too. The links will take you to a manufacture's website but please BUY LOCAL!</h5>
+    <div class="row gear-row">
         <div class="col-sm-4">
             <div class="panel panel-default">
                 <div class="panel-heading text-center">
                     <i class="fa fa-bicycle" style="font-size:60px;color:red"></i>
                 </div>
-                <div class="panel-body">
-                    <div class="list-group">
-                        <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-                        <a href="#" class="list-group-item">Morbi leo risus</a>
-                        <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                        <a href="#" class="list-group-item">Vestibulum at eros</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="panel panel-default">
-                <div class="panel-heading text-center">
-                    <i class="fa fa-shopping-bag" style="font-size:60px;color:red"></i>
-                </div>
-                <div class="panel-body">
-                    <div class="list-group">
-                        <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-                        <a href="#" class="list-group-item">Morbi leo risus</a>
-                        <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                        <a href="#" class="list-group-item">Vestibulum at eros</a>
+                <div class="panel-body gear-body">
+                    <div class="btn-group-vertical gear-buttons" role="group" aria-label="">
+                        <button type="button" class="btn btn-default" ng-click="goToBikeLink('bell')">bell</button>
+                        <button type="button" class="btn btn-default" ng-click="goToBikeLink('bottleCage')">bottle cages</button>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                bottles <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a target="_blank" ng-href="{{camelbak}}">camelbak</a></li>
+                                <li><a target="_blank" ng-href="{{cleanBottle}}">clean bottle</a></li>
+                            </ul>
+                        </div>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                chain <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a target="_blank" ng-href="{{chain}}">sram</a></li>
+                                <li><a target="_blank" ng-href="{{powerLink}}">powerlink</a></li>
+                            </ul>
+                        </div>
+                        <button type="button" class="btn btn-default" ng-click="goToBikeLink('fenders')">fenders</button>
+                        <button type="button" class="btn btn-default" ng-click="goToBikeLink('framePump')">frame pump</button>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                front lights <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a target="_blank" ng-href="{{cygolite}}">cygolite</a></li>
+                                <li><a target="_blank" ng-href="{{frontFlea}}">flea</a></li>
+                            </ul>
+                        </div>
+                        <button type="button" class="btn btn-default" ng-click="goToBikeLink('pedals')">pedals</button>
+                        <button type="button" class="btn btn-default" ng-click="goToBikeLink('racks')">racks</button>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                rear lights <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a target="_blank" ng-href="{{rearFlea}}">flea</a></li>
+                                <li><a target="_blank" ng-href="{{serfas}}">serfas</a></li>
+                            </ul>
+                        </div>
+                        <button type="button" class="btn btn-default" ng-click="goToBikeLink('saddle')">saddles</button>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                tires <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a target="_blank" ng-href="{{gatorskin}}">gatorskin</a></li>
+                                <li><a target="_blank" ng-href="{{schwalbe}}">schwalbe</a></li>
+                            </ul>
+                        </div>
+                        <button type="button" class="btn btn-default" ng-click="goToBikeLink('tubes')">tubes</button>
                     </div>
                 </div>
             </div>
@@ -43,12 +77,97 @@
                 <div class="panel-heading text-center">
                     <i class="fa fa-user" style="font-size:60px;color:red"></i>
                 </div>
-                <div class="panel-body">
-                    <div class="list-group">
-                        <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-                        <a href="#" class="list-group-item">Morbi leo risus</a>
-                        <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                        <a href="#" class="list-group-item">Vestibulum at eros</a>
+                <div class="panel-body gear-body">
+                    <div class="row">
+                        <div class="col-xs-6 left-col">
+                            <div class="btn-group-vertical gear-buttons" role="group" aria-label="">
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        every day <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a target="_blank" ng-href="{{bandanna}}">bandannas</a></li>
+                                        <li><a target="_blank" ng-href="{{cyclingCap}}">cycling caps</a></li>
+                                        <li><a target="_blank" ng-href="{{glasses}}">glasses</a></li>
+                                        <li><a target="_blank" ng-href="{{everydayGloves}}">gloves</a></li>
+                                        <li><a target="_blank" ng-href="{{pants}}">pants</a></li>
+                                        <li><a target="_blank" ng-href="{{everydayShirts}}">shirts</a></li>
+                                        <li><a target="_blank" ng-href="{{shoes}}">shoes</a></li>
+                                        <li><a target="_blank" ng-href="{{shorts}}">shorts</a></li>
+                                        <li><a target="_blank" ng-href="{{everydaySocks}}">socks</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 right-col">
+                            <div class="btn-group-vertical gear-buttons" role="group" aria-label="">
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        cold weather<span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a target="_blank" ng-href="{{boots}}">boots</a></li>
+                                        <li><a target="_blank" ng-href="{{coldGloves}}">gloves</a></li>
+                                        <li><a target="_blank" ng-href="{{mitts}}">mitts</a></li>
+                                        <li><a target="_blank" ng-href="{{jacket}}">jacket</a></li>
+                                        <li><a target="_blank" ng-href="{{coldShirts}}">shirts</a></li>
+                                        <li><a target="_blank" ng-href="{{coldSocks}}">socks</a></li>
+                                        <li><a target="_blank" ng-href="{{toques}}">toques</a></li>
+                                        <li><a target="_blank" ng-href="{{flappyToques}}">flappy toques</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center">
+                    <i class="fa fa-shopping-bag" style="font-size:60px;color:red"></i>
+                </div>
+                <div class="panel-body gear-body">
+                    <div class="btn-group-vertical gear-buttons" role="group" aria-label="">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                lock up your stuff <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a target="_blank" ng-href="{{cableLock}}">cable lock</a></li>
+                                <li><a target="_blank" ng-href="{{diySaddleLock}}">DIY saddle lock</a></li>
+                                <li><a target="_blank" ng-href="{{uLock}}">u lock</a></li>
+                            </ul>
+                        </div>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                carry your stuff <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a target="_blank" ng-href="{{arkel}}">arkel</a></li>
+                                <li><a target="_blank" ng-href="{{ortlieb}}">ortlieb</a></li>
+                            </ul>
+                        </div>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                fix your stuff <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a target="_blank" ng-href="{{multiTool}}">multi tool</a></li>
+                                <li><a target="_blank" ng-href="{{tireLeavers}}">tire levers</a></li>
+                                <li><a target="_blank" ng-href="{{wrench}}">wrench</a></li>
+                            </ul>
+                        </div>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                other useful stuff <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a target="_blank" ng-href="{{electricalTape}}">electrical tape</a></li>
+                                <li><a target="_blank" ng-href="{{latexGloves}}">latex gloves</a></li>
+                                <li><a target="_blank" ng-href="{{plasticBags}}">plastic bags</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
