@@ -45,7 +45,8 @@
   margin-bottom: 20px; }
 
 .radar-gif {
-  margin: 20px; }
+  margin: 20px;
+  height: 300px; }
 
 .img-thumbnail {
   border: none; }
