@@ -12,10 +12,10 @@ cd lib
 npm install
 ```
 2. Get some credintials
-This project uses the following APIs from the following sources:
+* This project uses the following APIs from the following sources:
     * Weather Underground
     * Google
-This project also uses a personal firebase database. Holla at me for permission but you gotta agree not to be mean!
+* This project also uses a personal firebase database. Holla at me for permission but you gotta agree not to be mean!
 ```
 cd app
 mkdir credentials && cd credentials
@@ -24,7 +24,7 @@ touch googleCredentials.js
 touch weatherCredentials.js
 ```
 3. Credentials files
-firebaseCredentials.js
+* firebaseCredentials.js
 ```
 "use strict";
 
@@ -34,7 +34,7 @@ app.constant("FirebaseCredentials", {
     databaseURL: "CONTACT ME FOR URL"
 });
 ```
-googleCredentials.js
+* googleCredentials.js
 ```
 "use strict";
 
@@ -42,7 +42,7 @@ app.constant("GoogleCredentials", {
     apiKey: "YOUR API KEY"
 });
 ```
-weatherCredentials.js
+* weatherCredentials.js
 ```
 "use strict";
 
