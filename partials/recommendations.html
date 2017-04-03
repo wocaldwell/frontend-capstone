@@ -34,7 +34,7 @@
                     </div>
                     <h5>Trip Distance: <strong>{{tripDistance}}</strong></h5>
                     <h5>Trip Duration: <strong>{{tripDuration}}</strong></h5>
-                    <p>There are no known road condition issues for  this trip.</p>
+                    <p>There are no known road or path condition issues for  your trips.</p>
                 </div>
             </div>
             <!-- <h4>Based on {{startingLocation}}:</h4>
@@ -90,7 +90,7 @@
                 <div class="col-sm-6"> -->
                     <div class="panel panel-default text-center">
                         <div class="panel-heading">
-                            <h5 class="panel-title">Current Conditions</h5>
+                            <h5 class="panel-title">Current Local Conditions</h5>
                             <a href="https://www.wunderground.com/wundermap?apiref={{apiRef}}&lat={{locationLat}}&lon={{locationLon}}&radar=1" target="_blank"><img class="card-img-top pin-image radar-gif" src="http://api.wunderground.com/api/{{apiKey}}/animatedradar/animatedsatellite/q/{{locationLat}},{{locationLon}}.gif?num=8&delay=50&interval=30" alt="weather radar"></a>
                         </div>
                         <a href="https://www.wunderground.com/cgi-bin/findweather/getForecast?apiref={{apiRef}}&query={{locationCity}}%2C+{{locationState}}" target="_blank"><div class="panel-body">
