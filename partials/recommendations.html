@@ -37,15 +37,6 @@
                     <p>There are no known road or path condition issues for  your trips.</p>
                 </div>
             </div>
-            <!-- <h4>Based on {{startingLocation}}:</h4>
-            <a ng-click="showChangeAddress()">Change starting location</a>
-            <div class="input-group" ng-show="changeStart">
-                <input type="text" class="form-control" placeholder="123 Example Ln. Any Town, ST 45678" ng-model="newStartAddress">
-                <span class="input-group-btn">
-                    <button class="btn btn-secondary" type="button" ng-click="changeStartingLocation()">Go!</button>
-                </span>
-            </div> -->
-
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">For your ride to <strong>{{tripDestination}}</strong> at about <strong>{{departTimeFull}}</strong></h4>
@@ -57,15 +48,6 @@
                     <p><strong>{{departLightsMessage}}</strong> {{departHeatSentence}} The chance for precipitation is {{departPrecipitation}} so <strong>{{departWetSentence}}</strong>. Since your time away is  about {{dayLength}} hours <strong>{{mealPack}}</strong>.</p>
                 </div>
             </div>
-
-            <!-- <h4>For your ride to {{tripDestination}} at about {{departTimeFull}}</h4>
-            <h5>Ride Distance: <strong>{{tripDistance}}</strong></h5>
-            <h5>Ride Duration: <strong>{{tripDuration}}</strong></h5>
-            <h5>Temperature:<strong> {{departTemperature}}</strong></h5>
-            <h5>Forecast:<strong> {{departForecast}}</strong></h5>
-            <h5>Wind:<strong> {{departWindDirection}} at {{departWindSpeed}}mph</strong></h5>
-            <p><strong>{{departLightsMessage}}</strong> {{departHeatSentence}} The chance for precipitation is {{departPrecipitation}} so <strong>{{departWetSentence}}</strong>. Since your time away is  about {{dayLength}} hours <strong>{{mealPack}}</strong>.</p> -->
-
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">For your ride to <strong>{{tripOrigin}}</strong> at about <strong>{{returnTimeFull}}</strong></h4>
@@ -77,55 +59,44 @@
                     <p><strong>{{returnLightsMessage}}</strong> {{returnHeatSentence}} The chance for precipitation is {{returnPrecipitation}} so <strong>{{returnWetSentence}}</strong>.</p>
                 </div>
             </div>
-
-            <!-- <h4>For your return ride at {{returnTimeFull}}</h4>
-            <h5>Temperature:<strong> {{returnTemperature}}</strong></h5>
-            <h5>Forecast:<strong> {{returnForecast}}</strong></h5>
-            <h5>Wind:<strong> {{returnWindDirection}} at {{returnWindSpeed}}mph</strong></h5>
-            <p><strong>{{returnLightsMessage}}</strong> {{returnHeatSentence}} The chance for precipitation is {{returnPrecipitation}} so <strong>{{returnWetSentence}}</strong>.</p> -->
         </div>
-
         <div class="container col-sm-6" ng-controller="CurrentConditionsCtrl">
-            <!-- <div class="row">
-                <div class="col-sm-6"> -->
-                    <div class="panel panel-default text-center">
-                        <div class="panel-heading">
-                            <h5 class="panel-title">Current Local Conditions</h5>
-                            <a href="https://www.wunderground.com/wundermap?apiref={{apiRef}}&lat={{locationLat}}&lon={{locationLon}}&radar=1" target="_blank"><img class="card-img-top pin-image radar-gif" src="http://api.wunderground.com/api/{{apiKey}}/animatedradar/animatedsatellite/q/{{locationLat}},{{locationLon}}.gif?num=8&delay=50&interval=30" alt="weather radar"></a>
+            <div class="panel panel-default text-center">
+                <div class="panel-heading">
+                    <h5 class="panel-title">Current Local Conditions</h5>
+                    <a href="https://www.wunderground.com/wundermap?apiref={{apiRef}}&lat={{locationLat}}&lon={{locationLon}}&radar=1" target="_blank"><img class="card-img-top pin-image radar-gif" src="http://api.wunderground.com/api/{{apiKey}}/animatedradar/animatedsatellite/q/{{locationLat}},{{locationLon}}.gif?num=8&delay=50&interval=30" alt="weather radar"></a>
+                </div>
+                <a href="https://www.wunderground.com/cgi-bin/findweather/getForecast?apiref={{apiRef}}&query={{locationCity}}%2C+{{locationState}}" target="_blank"><div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <img class="img-thumbnail" src="{{icon}}" alt="{{weather}}">
                         </div>
-                        <a href="https://www.wunderground.com/cgi-bin/findweather/getForecast?apiref={{apiRef}}&query={{locationCity}}%2C+{{locationState}}" target="_blank"><div class="panel-body">
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <img class="img-thumbnail" src="{{icon}}" alt="{{weather}}">
-                                </div>
-                                <div class="col-xs-4">
-                                    <h2 class="temp-big"><strong>{{temperature}}</strong> &deg;F</h2>
-                                </div>
-                                <div class="col-xs-4">
-                                    <i class="wi wi-wind from-{{windDegrees}}-deg"></i>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <p>{{weather}}</p>
-                                </div>
-                                <div class="col-xs-4">
-                                    <p>Feels like <strong>{{feelsLikeTemperature}}</strong></p>
-                                </div>
-                                <div class="col-xs-4">
-                                    <p>Wind is {{wind}}</p>
-                                </div>
-                            </div>
-                        </div></a>
-                        <div class="panel-footer">
-                            <h4>{{firstPeriodName}}:</h4>
-                            <p>{{firstPeriodText}}</p>
-                            <h4>{{secondPeriodName}}:</h4>
-                            <p>{{secondPeriodText}}</p>
+                        <div class="col-xs-4">
+                            <h2 class="temp-big"><strong>{{temperature}}</strong> &deg;F</h2>
+                        </div>
+                        <div class="col-xs-4">
+                            <i class="wi wi-wind from-{{windDegrees}}-deg"></i>
                         </div>
                     </div>
-                <!-- </div>
-            </div> -->
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <p>{{weather}}</p>
+                        </div>
+                        <div class="col-xs-4">
+                            <p>Feels like <strong>{{feelsLikeTemperature}}</strong></p>
+                        </div>
+                        <div class="col-xs-4">
+                            <p>Wind is {{wind}}</p>
+                        </div>
+                    </div>
+                </div></a>
+                <div class="panel-footer">
+                    <h4>{{firstPeriodName}}:</h4>
+                    <p>{{firstPeriodText}}</p>
+                    <h4>{{secondPeriodName}}:</h4>
+                    <p>{{secondPeriodText}}</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>

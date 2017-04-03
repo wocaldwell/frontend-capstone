@@ -4,12 +4,10 @@ app.controller("GetStartedCtrl", function($scope, $window, $location, LocationFa
 
     $scope.userDestination = "";
 
+    // go button click logic
     $scope.goToConditions = function() {
-        console.log('you clicked GO!');
+        // console.log('you clicked GO!');
         LocationFactory.setDestination($scope.userDestination);
         $window.location.href = "#!/conditions";
     };
-
-    // LocationFactory.getMyCoords();
-
 });

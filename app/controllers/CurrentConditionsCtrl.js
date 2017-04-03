@@ -2,18 +2,19 @@
 
 app.controller("CurrentConditionsCtrl", function($scope, $window, $location, LocationFactory, WeatherFactory, WeatherCredentials, $routeParams) {
 
+    // set scope for api keys
     $scope.apiKey = WeatherCredentials.apiKey;
     $scope.apiRef = WeatherCredentials.apiRef;
-    // $scope.showCurrentConditions = true;
+    // set loading screen to true on partial load
     $scope.showWheel = true;
 
-
+    // logic to populate radar and conditions info from weather api
     LocationFactory.getGeolocation()
     .then(function(returnedCoords) {
         WeatherFactory.getConditions(returnedCoords)
         .then(function(conditions) {
             let iconText = conditions.icon;
-            console.log('The conditions object is: ', conditions);
+            // console.log('The conditions object is: ', conditions);
             $scope.locationLat = conditions.display_location.latitude;
             $scope.locationLon = conditions.display_location.longitude;
             $scope.icon = `https://icons.wxug.com/i/c/j/${iconText}.gif`;
@@ -24,12 +25,13 @@ app.controller("CurrentConditionsCtrl", function($scope, $window, $location, Loc
             $scope.windDegrees = conditions.wind_degrees;
             $scope.locationCity = conditions.display_location.city;
             $scope.locationState = conditions.display_location.state;
-            // $scope.showCurrentConditions = true;
+            // remove loading screen
             $scope.showWheel = false;
             $("#conditions-page-view").removeClass("blur");
         });
     });
 
+    // logic to populate day outlook info from weather api
     LocationFactory.getGeolocation()
     .then(function(returnedCoords) {
         WeatherFactory.getDayForecast(returnedCoords)
@@ -40,5 +42,4 @@ app.controller("CurrentConditionsCtrl", function($scope, $window, $location, Loc
             $scope.secondPeriodText = dayForcast[1].fcttext;
         });
     });
-
 });

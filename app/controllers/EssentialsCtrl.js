@@ -2,13 +2,15 @@
 
 app.controller("EssentialsCtrl", function($scope, $window, $location, RecommendationsFactory){
 
+    // declare for use in multiple functions
     let gearObject = {};
     let gearUrl = "";
 
+    // logic to get the link urls from firebase db for li's
     RecommendationsFactory.getGearRecommendations()
     .then(function(returnedGear) {
         gearObject = returnedGear;
-        console.log('the gearObject is ', gearObject);
+        // console.log('the gearObject is ', gearObject);
         $scope.camelbak = gearObject.bicycle.bottles.camelbak;
         $scope.cleanBottle = gearObject.bicycle.bottles.cleanBottle;
         $scope.chain = gearObject.bicycle.chain.chain;
@@ -50,19 +52,8 @@ app.controller("EssentialsCtrl", function($scope, $window, $location, Recommenda
     });
 
 
-
+        // logic to get the link urls from firebase db for BUTTONS
     $scope.goToBikeLink = function(gearName) {
-        // console.log('you clicked a bike link for', gearName);
-        // RecommendationsFactory.getGearRecommendations()
-        // .then(function(returnedGear) {
-        //     let tempBikeGear = gearName;
-        //     console.log('tempBikeGear = ', tempBikeGear);
-        //     let bikeGearObject = returnedGear.bicycle;
-        //     console.log('the bikeGearObject is ', bikeGearObject);
-        //     let gearLink = bikeGearObject.tempBikeGear;
-        //     console.log('gearLink = ', gearLink);
-        //     $window.open(gearLink, "_blank");
-        // });
         if (gearName === "bell") {
             gearUrl = gearObject.bicycle.bell;
         } if (gearName === "bottleCage") {
