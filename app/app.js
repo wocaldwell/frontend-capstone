@@ -14,10 +14,6 @@ app.config(function($routeProvider) {
         templateUrl: "partials/currentConditions.html",
         controller: "CurrentConditionsCtrl"
     })
-    .when("/testing", {
-        templateUrl: "partials/moreInfo.html",
-        controller: "MoreInfoCtrl"
-    })
     .when("/recommendations", {
         templateUrl: "partials/recommendations.html",
         controller: "RecommendationsCtrl"

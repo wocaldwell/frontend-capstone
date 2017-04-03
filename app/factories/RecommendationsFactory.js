@@ -7,7 +7,7 @@ app.factory("RecommendationsFactory", function($q, $http, FirebaseCredentials) {
             $http.get(`${FirebaseCredentials.databaseURL}/meals.json`)
             .then(function(returnedRecs) {
                 let mealsObject = returnedRecs.data;
-                console.log('the mealsObject is ', mealsObject);
+                // console.log('the mealsObject is ', mealsObject);
                 resolve(mealsObject);
             })
             .catch (function(error) {
@@ -55,5 +55,10 @@ app.factory("RecommendationsFactory", function($q, $http, FirebaseCredentials) {
         });
     };
 
-    return{getMealRecommendations, getHeatRecommendations, getWetRecomendations, getGearRecommendations};
+    return {
+        getMealRecommendations,
+        getHeatRecommendations,
+        getWetRecomendations,
+        getGearRecommendations
+    };
 });

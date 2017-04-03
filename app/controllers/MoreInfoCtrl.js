@@ -2,7 +2,6 @@
 
 app.controller("MoreInfoCtrl", function($scope, $window, $location, TimeFactory, WeatherFactory, LocationFactory) {
 
-    // $scope.nowButton = "Now";
     $scope.oneHourButton = "Within One Hour";
     $scope.twoHourButton = "Two Hours";
     $scope.threeHourButton = "Three Hours";
@@ -24,19 +23,18 @@ app.controller("MoreInfoCtrl", function($scope, $window, $location, TimeFactory,
         }
     };
 
+    // set departure time based on what the user clicks
     $scope.setDeparture = function(departureButton) {
         TimeFactory.setDepartureHour(departureButton);
     };
 
+    // go button click logic
     $scope.goToReccomendations = function() {
         // console.log('you wrote: ', $scope.returnTime);
-        console.log('the time picker says', $scope.userReturnTime);
+        // console.log('the time picker says', $scope.userReturnTime);
         TimeFactory.setDepartureHour();
         TimeFactory.setReturnHour($scope.userReturnTime);
-        // TimeFactory.setReturnHour($scope.returnTime);
         TimeFactory.setReturnTimeString($scope.userReturnTime);
-        // TimeFactory.setReturnTimeString($scope.returnTime);
         $window.location.href = "#!/recommendations";
     };
-
 });
