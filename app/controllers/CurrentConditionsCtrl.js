@@ -14,7 +14,6 @@ app.controller("CurrentConditionsCtrl", function($scope, $window, $location, Loc
         WeatherFactory.getConditions(returnedCoords)
         .then(function(conditions) {
             let iconText = conditions.icon;
-            // console.log('The conditions object is: ', conditions);
             $scope.locationLat = conditions.display_location.latitude;
             $scope.locationLon = conditions.display_location.longitude;
             $scope.icon = `https://icons.wxug.com/i/c/j/${iconText}.gif`;

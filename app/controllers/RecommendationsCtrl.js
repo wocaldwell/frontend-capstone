@@ -15,13 +15,11 @@ app.controller("RecommendationsCtrl", function($scope, $window, $location, TimeF
 
     // show change start div if link is clicked
     $scope.showChangeAddress = function() {
-        // console.log('you clicked Change starting location');
         $scope.changeStart = true;
     };
 
     // change the starting location when the go button is clicked
     $scope.changeStartingLocation = function() {
-        // console.log('you clicked go. . . ');
         $scope.changeStart = false;
         LocationFactory.setNewStartLocation($scope.newStartAddress);
         LocationFactory.getTripDistance(LocationFactory.getNewStartLocationSeperated(), LocationFactory.getDestinationSeperated())
@@ -59,9 +57,6 @@ app.controller("RecommendationsCtrl", function($scope, $window, $location, TimeF
                 nextDate = String(tempNextDate),
                 departObject = {},
                 returnObject = {};
-            // console.log('the depart and return hours are ', departHour, ' and ', returningHour);
-            // console.log('departDate is ', departDate);
-            // console.log('nextDate = ', nextDate);
             for (var i = 0; i < conditions.length; i++) {
                 if (conditions[i].FCTTIME.hour === departHour && conditions[i].FCTTIME.mday === departDate) {
                     departObject = conditions[i];
@@ -71,8 +66,7 @@ app.controller("RecommendationsCtrl", function($scope, $window, $location, TimeF
                     returnObject = conditions[i];
                 }
             }
-            // console.log('departObject = ', departObject);
-            // console.log('returnObject = ', returnObject);
+
             $scope.departTemperature = departObject.temp.english;
             $scope.departForecast = departObject.condition;
             $scope.departWindDirection = departObject.wdir.dir;
@@ -136,11 +130,8 @@ app.controller("RecommendationsCtrl", function($scope, $window, $location, TimeF
             });
         })
         .then(function() {
-            // console.log('this is after the conditions come back.');
             RecommendationsFactory.getWetRecomendations()
             .then(function(returnedRecs) {
-                // console.log('returnedRecs in getWet = ', returnedRecs);
-                // console.log('$scope.departPrecipitation in getWet = ', $scope.departPrecipitation);
                 if ($scope.departPrecipitation === "insignificant") {
                     $scope.departWetSentence = returnedRecs.insignificant;
                 } if ($scope.departPrecipitation === "slight") {
@@ -165,8 +156,6 @@ app.controller("RecommendationsCtrl", function($scope, $window, $location, TimeF
     // meal pack recommendations logic
     RecommendationsFactory.getMealRecommendations()
     .then(function(returnedRecs) {
-        // console.log('returned recs for mealPack = ', returnedRecs);
-        // console.log('the day length in mealPack is ', $scope.dayLength);
         if ($scope.dayLength < 6) {
             $scope.mealPack = returnedRecs.short;
         } if ($scope.dayLength >= 9) {

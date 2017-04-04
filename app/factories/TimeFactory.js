@@ -9,12 +9,10 @@ app.factory("TimeFactory", function($window, $filter) {
         departureHour = $filter("date")(currentDate, "H"),
         returnHour = "",
         returnTimeString = "";
-        // console.log('the day is ', currentDay);
 
 
     let setReturnTimeString = function(returnTime) {
         returnTimeString = $filter("date")(returnTime, "shortTime");
-        // console.log('the return time was set to ', returnTimeString);
         return returnTimeString;
     };
 
@@ -28,17 +26,12 @@ app.factory("TimeFactory", function($window, $filter) {
     // setting depart hour if an option is clicked
     let setDepartureHour = function(button) {
         if (button === "Within One Hour") {
-            // console.log('this hour + 1 is', departureHour);
         } if (button === "Two Hours") {
             departureHour = currentHour + 2;
-            // console.log('hour = ', currentHour);
-            // console.log('this hour + 2 is', departureHour);
         } if (button === "Three Hours") {
             departureHour = currentHour + 3;
-            // console.log('this hour + 3 is', departureHour);
         } if (departureHour > 23) {
             departureHour = departureHour - 24;
-            // console.log('early mornin hour is', departureHour);
         }
         departureHour = String(departureHour);
         return departureHour;
@@ -54,7 +47,6 @@ app.factory("TimeFactory", function($window, $filter) {
     };
 
     let getReturnHour = function() {
-        // console.log('you are getting the return hour of ', returnHour);
         return returnHour;
     };
 
@@ -72,7 +64,6 @@ app.factory("TimeFactory", function($window, $filter) {
             timeBetweenRides = 24 - (parseInt(startTime) - parseInt(backTime));
             timeBetweenRides = String(timeBetweenRides);
         }
-        // console.log('Your workday is approx.', timeBetweenRides, ' hours long.');
         return timeBetweenRides;
     };
 

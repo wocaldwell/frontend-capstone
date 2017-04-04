@@ -7,7 +7,6 @@ app.factory("RecommendationsFactory", function($q, $http, FirebaseCredentials) {
             $http.get(`${FirebaseCredentials.databaseURL}/meals.json`)
             .then(function(returnedRecs) {
                 let mealsObject = returnedRecs.data;
-                // console.log('the mealsObject is ', mealsObject);
                 resolve(mealsObject);
             })
             .catch (function(error) {
