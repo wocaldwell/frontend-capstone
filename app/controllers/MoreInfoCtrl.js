@@ -12,7 +12,6 @@ app.controller("MoreInfoCtrl", function($scope, $window, $location, TimeFactory,
     $scope.mstep = 15;
     $scope.ismeridian = true;
     $scope.userReturnTime = null;
-    // console.log('default user return time is ', $scope.userReturnTime);
 
     // disable go button if return time is null
     $scope.goDisabled = function() {
@@ -30,8 +29,6 @@ app.controller("MoreInfoCtrl", function($scope, $window, $location, TimeFactory,
 
     // go button click logic
     $scope.goToReccomendations = function() {
-        // console.log('you wrote: ', $scope.returnTime);
-        // console.log('the time picker says', $scope.userReturnTime);
         TimeFactory.setDepartureHour();
         TimeFactory.setReturnHour($scope.userReturnTime);
         TimeFactory.setReturnTimeString($scope.userReturnTime);

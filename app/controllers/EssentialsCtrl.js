@@ -10,7 +10,6 @@ app.controller("EssentialsCtrl", function($scope, $window, $location, Recommenda
     RecommendationsFactory.getGearRecommendations()
     .then(function(returnedGear) {
         gearObject = returnedGear;
-        // console.log('the gearObject is ', gearObject);
         $scope.camelbak = gearObject.bicycle.bottles.camelbak;
         $scope.cleanBottle = gearObject.bicycle.bottles.cleanBottle;
         $scope.chain = gearObject.bicycle.chain.chain;

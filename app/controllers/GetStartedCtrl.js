@@ -6,7 +6,6 @@ app.controller("GetStartedCtrl", function($scope, $window, $location, LocationFa
 
     // go button click logic
     $scope.goToConditions = function() {
-        // console.log('you clicked GO!');
         LocationFactory.setDestination($scope.userDestination);
         $window.location.href = "#!/conditions";
     };
