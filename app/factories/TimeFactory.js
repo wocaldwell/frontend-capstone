@@ -52,6 +52,8 @@ app.factory("TimeFactory", function($window, $filter) {
 
     let getDepartTimeString = function() {
         currentDate = new Date();
+        let temporaryDepartHour = getDepartureHour();
+        currentDate.setHours(parseInt(temporaryDepartHour));
         let departTimeString = $filter("date")(currentDate, "shortTime");
         return departTimeString;
     };
