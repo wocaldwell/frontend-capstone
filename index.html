@@ -10,10 +10,9 @@
         <link rel="stylesheet" href="app/css/weather-icons-wind.min.css">
         <link rel="stylesheet" href="app/css/main.css">
     </head>
-    <body>
+    <body ng-controller="AutoCompleteCtrl">
 
         <div ng-include="'partials/navbar.html'"></div>
-        <!-- <div ng-include="'partials/background.html'"></div> -->
 
         <div id="view-div" ng-view></div>
 
@@ -27,6 +26,11 @@
         <script type="text/javascript" src="lib/node_modules/angular-touch/angular-touch.min.js"></script>
         <script type="text/javascript" src="lib/node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
         <script type="text/javascript" src="lib/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+        <script type="text/javascript" src="lib/bower_components/vsGoogleAutocomplete/dist/vs-google-autocomplete.js"></script>
+        <script type="text/javascript" src="lib/bower_components/vsGoogleAutocomplete/dist/vs-autocomplete-validator.js"></script>
+        <script type="text/javascript" ng-src="https://maps.googleapis.com/maps/api/js?key={{apiKey}}&libraries=places"></script>
+
+
 
         <!-- app.js -->
         <script type="text/javascript" src="app/app.js"></script>
@@ -43,6 +47,7 @@
         <script type="text/javascript" src="app/factories/RecommendationsFactory.js"></script>
 
         <!-- controllers -->
+        <script type="text/javascript" src="app/controllers/AutoCompleteCtrl.js"></script>
         <script type="text/javascript" src="app/controllers/NavbarCtrl.js"></script>
         <script type="text/javascript" src="app/controllers/GetStartedCtrl.js"></script>
         <script type="text/javascript" src="app/controllers/CurrentConditionsCtrl.js"></script>
