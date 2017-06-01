@@ -4,7 +4,6 @@ app.controller("RecommendationsCtrl", function($scope, $window, $location, TimeF
 
     // change start div view set to false
     $scope.changeStart = false;
-    $scope.newStartAddress = "";
     $scope.userDestination = LocationFactory.getDestination();
     $scope.returnTimeFull = TimeFactory.getReturnTimeString();
     $scope.departTimeFull = TimeFactory.getDepartTimeString();
@@ -16,6 +15,15 @@ app.controller("RecommendationsCtrl", function($scope, $window, $location, TimeF
     // show change start div if link is clicked
     $scope.showChangeAddress = function() {
         $scope.changeStart = true;
+    };
+
+    // disable go button if destination is an invalid street address
+    $scope.goDisabled = function() {
+        if ($scope.newStartAddress) {
+            return false;
+        } else {
+            return true;
+        }
     };
 
     // change the starting location when the go button is clicked

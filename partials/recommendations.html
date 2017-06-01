@@ -29,7 +29,7 @@
                     <div class="input-group" ng-show="changeStart">
                         <input vs-google-autocomplete type="text" class="form-control" ng-model="newStartAddress">
                         <span class="input-group-btn">
-                            <button class="btn btn-secondary" type="button" ng-click="changeStartingLocation()">Go!</button>
+                            <button class="btn btn-secondary" type="button" ng-click="changeStartingLocation()" ng-disabled="goDisabled()">Go!</button>
                         </span>
                     </div>
                     <h5>Trip Distance: <strong>{{tripDistance}}</strong></h5>

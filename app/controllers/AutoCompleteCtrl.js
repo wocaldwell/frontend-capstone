@@ -1,7 +1,7 @@
 "use strict";
 
-app.controller("AutoCompleteCtrl", function($scope, GoogleCredentials) {
+app.controller("AutoCompleteCtrl", function($scope, $sce, GoogleCredentials) {
 
     // set scope for api key
-    $scope.apiKey = GoogleCredentials.apiKey;
+    $scope.googleApiUrl = $sce.trustAsResourceUrl(`https://maps.googleapis.com/maps/api/js?libraries=places`);
 });
