@@ -1,7 +1,7 @@
 "use strict";
 
 // defining app (remember to assign '"app": true' in your Gruntfile.js in grunt.initConfig under 'Globals"')
-let app = angular.module("ArriveDry", ["ngRoute", "ui.bootstrap"]);
+let app = angular.module("ArriveDry", ["ngRoute", "ui.bootstrap", "vsGoogleAutocomplete"]);
 
 // displaying different routing available with which partial and controller assigned to them
 app.config(function($routeProvider) {

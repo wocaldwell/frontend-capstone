@@ -2,7 +2,15 @@
 
 app.controller("GetStartedCtrl", function($scope, $window, $location, LocationFactory, WeatherFactory) {
 
-    $scope.userDestination = "";
+
+    // disable go button if destination is an invalid street address
+    $scope.goDisabled = function() {
+        if ($scope.userDestination) {
+            return false;
+        } else {
+            return true;
+        }
+    };
 
     // go button click logic
     $scope.goToConditions = function() {

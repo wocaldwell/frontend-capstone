@@ -8,9 +8,9 @@
     </div>
     <h5>Enter a destination and we'll make it easier for you to ArriveDry!</h5>
     <div class="input-group">
-        <input type="text" class="form-control" placeholder="123 Example Ln Any Town ST" ng-model="userDestination">
+        <input vs-google-autocomplete vs-autocomplete-validator="vs-street-address" type="text" class="form-control" ng-model="userDestination">
         <span class="input-group-btn">
-            <button class="btn btn-secondary" type="button" ng-click="goToConditions()">Go!</button>
+            <button class="btn btn-secondary" type="button" ng-click="goToConditions()" ng-disabled="goDisabled()">Go!</button>
         </span>
     </div>
 </div>
