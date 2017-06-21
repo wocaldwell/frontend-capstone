@@ -1,6 +1,6 @@
 "use strict";
 
-app.factory("LocationFactory", function($window, $q, $http, GoogleCredentials) {
+app.factory("LocationFactory", function($window, $q, $http, AuthFactory) {
 
     let myCoords = "",
         destination = "",
@@ -53,7 +53,7 @@ app.factory("LocationFactory", function($window, $q, $http, GoogleCredentials) {
 
     let getTripDistance = function(startLocation, endLocation) {
         return $q(function(resolve, reject) {
-            $http.get(` https://arrivedry.herokuapp.com/api/distancematrix/json?units=imperial&origins=${startLocation}&destinations=${endLocation}&mode=bicycling&key=${GoogleCredentials.apiKey}`)
+            $http.get(` https://arrivedry.herokuapp.com/api/distancematrix/json?units=imperial&origins=${startLocation}&destinations=${endLocation}&mode=bicycling&key=${AuthFactory.apiCredentials.googlekey}`)
             .then(function(returnedMatrix) {
                 let distanceObject = returnedMatrix.data;
                 resolve(distanceObject);

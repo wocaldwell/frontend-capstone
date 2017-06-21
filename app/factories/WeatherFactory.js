@@ -1,10 +1,10 @@
 "use strict";
 
-app.factory("WeatherFactory", function($q, $http, WeatherCredentials, LocationFactory) {
+app.factory("WeatherFactory", function($q, $http, AuthFactory, LocationFactory) {
 
     let getConditions = function(coords) {
         return $q(function(resolve, reject) {
-            $http.get(`http://api.wunderground.com/api/${WeatherCredentials.apiKey}/conditions/q/${coords}.json`)
+            $http.get(`http://api.wunderground.com/api/${AuthFactory.apiCredentials.weatherkey}/conditions/q/${coords}.json`)
             .then(function(returnedConditions) {
                 let conditionsObject = returnedConditions.data.current_observation;
 
@@ -18,7 +18,7 @@ app.factory("WeatherFactory", function($q, $http, WeatherCredentials, LocationFa
 
     let getHourlyConditions = function(coords) {
         return $q(function(resolve, reject) {
-            $http.get(`http://api.wunderground.com/api/${WeatherCredentials.apiKey}/hourly/q/${coords}.json`)
+            $http.get(`http://api.wunderground.com/api/${AuthFactory.apiCredentials.weatherkey}/hourly/q/${coords}.json`)
             .then(function(hourlyConditions) {
                 let hourlyArray = hourlyConditions.data.hourly_forecast;
                 resolve(hourlyArray);
@@ -31,7 +31,7 @@ app.factory("WeatherFactory", function($q, $http, WeatherCredentials, LocationFa
 
     let getSunPhase = function(coords) {
         return $q(function(resolve, reject) {
-            $http.get(`http://api.wunderground.com/api/${WeatherCredentials.apiKey}/astronomy/q/${coords}.json`)
+            $http.get(`http://api.wunderground.com/api/${AuthFactory.apiCredentials.weatherkey}/astronomy/q/${coords}.json`)
             .then(function(astroObject) {
                 let sunObject = astroObject.data.sun_phase;
                 resolve(sunObject);
@@ -44,7 +44,7 @@ app.factory("WeatherFactory", function($q, $http, WeatherCredentials, LocationFa
 
     let getDayForecast = function(coords) {
         return $q(function(resolve, reject) {
-            $http.get(`http://api.wunderground.com/api/${WeatherCredentials.apiKey}/forecast/q/${coords}.json`)
+            $http.get(`http://api.wunderground.com/api/${AuthFactory.apiCredentials.weatherkey}/forecast/q/${coords}.json`)
             .then(function(forecastObject) {
                 let dayForecastArray = forecastObject.data.forecast.txt_forecast.forecastday;
                 resolve(dayForecastArray);

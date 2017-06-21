@@ -1,6 +1,10 @@
 "use strict";
 
-app.controller("RecommendationsCtrl", function($scope, $window, $location, TimeFactory, WeatherFactory, LocationFactory, RecommendationsFactory) {
+app.controller("RecommendationsCtrl", function($scope, $window, $location, TimeFactory, WeatherFactory, LocationFactory, RecommendationsFactory, AuthFactory) {
+
+    // set scope for api keys
+    $scope.apiKey = AuthFactory.apiCredentials.weatherkey;
+    $scope.apiRef = AuthFactory.apiCredentials.weatherref;
 
     // change start div view set to false
     $scope.changeStart = false;

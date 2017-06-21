@@ -1,10 +1,10 @@
 "use strict";
 
-app.controller("CurrentConditionsCtrl", function($scope, $window, $location, LocationFactory, WeatherFactory, WeatherCredentials, $routeParams) {
+app.controller("CurrentConditionsCtrl", function($scope, $window, $location, LocationFactory, WeatherFactory, AuthFactory, $routeParams) {
 
     // set scope for api keys
-    $scope.apiKey = WeatherCredentials.apiKey;
-    $scope.apiRef = WeatherCredentials.apiRef;
+    $scope.apiKey = AuthFactory.apiCredentials.weatherkey;
+    $scope.apiRef = AuthFactory.apiCredentials.weatherref;
     // set loading screen to true on partial load
     $scope.showWheel = true;
 

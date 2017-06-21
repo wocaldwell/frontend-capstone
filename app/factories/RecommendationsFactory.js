@@ -1,10 +1,10 @@
 "use strict";
 
-app.factory("RecommendationsFactory", function($q, $http, FirebaseCredentials) {
+app.factory("RecommendationsFactory", function($q, $http, AuthFactory) {
 
     let getMealRecommendations = function() {
         return $q(function(resolve, reject) {
-            $http.get(`${FirebaseCredentials.databaseURL}/meals.json`)
+            $http.get(`${AuthFactory.apiCredentials.firebaseurl}/meals.json`)
             .then(function(returnedRecs) {
                 let mealsObject = returnedRecs.data;
                 resolve(mealsObject);
@@ -17,7 +17,7 @@ app.factory("RecommendationsFactory", function($q, $http, FirebaseCredentials) {
 
     let getHeatRecommendations = function() {
         return $q(function(resolve, reject) {
-            $http.get(`${FirebaseCredentials.databaseURL}/heat-description.json`)
+            $http.get(`${AuthFactory.apiCredentials.firebaseurl}/heat-description.json`)
             .then(function(returnedRecs) {
                 let heatObject = returnedRecs.data;
                 resolve(heatObject);
@@ -30,7 +30,7 @@ app.factory("RecommendationsFactory", function($q, $http, FirebaseCredentials) {
 
     let getWetRecomendations = function() {
         return $q(function(resolve, reject) {
-            $http.get(`${FirebaseCredentials.databaseURL}/precipitation.json`)
+            $http.get(`${AuthFactory.apiCredentials.firebaseurl}/precipitation.json`)
             .then(function(returnedRecs) {
                 let precipitationObject = returnedRecs.data;
                 resolve(precipitationObject);
@@ -43,7 +43,7 @@ app.factory("RecommendationsFactory", function($q, $http, FirebaseCredentials) {
 
     let getGearRecommendations = function() {
         return $q(function(resolve, reject) {
-            $http.get(`${FirebaseCredentials.databaseURL}/gear.json`)
+            $http.get(`${AuthFactory.apiCredentials.firebaseurl}/gear.json`)
             .then(function(returnedRecs) {
                 let gearObject = returnedRecs.data;
                 resolve(gearObject);
