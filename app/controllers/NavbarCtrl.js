@@ -10,7 +10,7 @@ app.controller("NavbarCtrl", function($scope, $window, $location, AuthFactory){
     AuthFactory.getArriveDryCredsFromAPI()
     .then(function(returnedVars){
         let creds = returnedVars.data;
-        AuthFactory.setDiscogsCredentials(creds);
+        AuthFactory.setApiCredentials(creds);
     });
 
 });
