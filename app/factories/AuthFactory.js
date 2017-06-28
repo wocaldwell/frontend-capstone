@@ -4,7 +4,7 @@ app.factory("AuthFactory", function($window, $q, $http) {
 
     let getArriveDryCredsFromAPI = function() {
         return $http({
-            url: `http://www.williamocaldwell.com:8000/arrivedrycreds/`,
+            url: `https://www.williamocaldwell.com:8000/arrivedrycreds/`,
             method: "GET"
         })
     }
