@@ -10,7 +10,12 @@ app.factory("LocationFactory", function($window, $q, $http, GoogleCredentials) {
         return $q(function(resolve, reject) {
             $window.navigator.geolocation.getCurrentPosition(function(position) {
                 myCoords = position.coords.latitude + "," + position.coords.longitude;
+                console.log('myCoords in geolocation:', myCoords);
                 resolve(myCoords);
+            })
+            .catch (function(error) {
+                console.log('reject myCoords: ', myCoords);
+                reject(error);
             });
         });
     };
