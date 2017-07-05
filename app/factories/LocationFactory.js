@@ -6,16 +6,24 @@ app.factory("LocationFactory", function($window, $q, $http, AuthFactory) {
         destination = "",
         newStartLocation = "";
 
-    let getGeolocation = function() {
+    let geoLocationSuccess = function(position) {
+        myCoords = position.coords.latitude + "," + position.coords.longitude;
+    };
+
+    let geoLocationError = function(error) {
+        console.log('there was an error:', error);
+        alert('It seems like Geolocation, which is required for this page, is not enabled in your browser. Please use a browser which supports it.');
+        $window.location.href = "#!/";
+
+    };
+
+    let setGeolocation = function() {
         return $q(function(resolve, reject) {
-            $window.navigator.geolocation.getCurrentPosition(function(position) {
-                myCoords = position.coords.latitude + "," + position.coords.longitude;
-                resolve(myCoords);
-            });
+            $window.navigator.geolocation.getCurrentPosition(geoLocationSuccess, geoLocationError);
         });
     };
 
-    let getMyCoords = function() {
+    let getGeolocation = function() {
         return myCoords;
     };
 
@@ -65,8 +73,8 @@ app.factory("LocationFactory", function($window, $q, $http, AuthFactory) {
     };
 
     return {
+        setGeolocation,
         getGeolocation,
-        getMyCoords,
         setDestination,
         getDestination,
         getTripDistance,
