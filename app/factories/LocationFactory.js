@@ -27,9 +27,6 @@ app.factory("LocationFactory", function($window, $q, $http, GoogleCredentials) {
         return myCoords;
     };
 
-    // let getMyCoords = function() {
-    //     return myCoords;
-    // };
 
     let setDestination = function(userDestination) {
         destination = userDestination;
@@ -79,7 +76,6 @@ app.factory("LocationFactory", function($window, $q, $http, GoogleCredentials) {
     return {
         setGeolocation,
         getGeolocation,
-        // getMyCoords,
         setDestination,
         getDestination,
         getTripDistance,
