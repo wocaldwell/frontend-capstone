@@ -13,7 +13,6 @@ app.controller("CurrentConditionsCtrl", function($scope, $window, $location, Loc
     // logic to populate radar and conditions info from weather api
     WeatherFactory.getConditions(currentCoords)
     .then(function(conditions) {
-        console.log(conditions);
         let iconText = conditions.icon;
         $scope.locationLat = conditions.display_location.latitude;
         $scope.locationLon = conditions.display_location.longitude;
