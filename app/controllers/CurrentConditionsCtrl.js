@@ -25,6 +25,7 @@ app.controller("CurrentConditionsCtrl", function($scope, $window, $location, Loc
         $scope.windDegrees = conditions.wind_degrees;
         $scope.locationCity = conditions.display_location.city;
         $scope.locationState = conditions.display_location.state;
+        $scope.locationCountry = conditions.display_location.country;
         // remove loading screen
         $scope.showWheel = false;
         $("#conditions-page-view").removeClass("blur");
