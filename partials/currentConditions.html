@@ -13,7 +13,7 @@
                     <h5 class="panel-title">Current Local Conditions</h5>
                     <a href="https://www.wunderground.com/wundermap?apiref={{apiRef}}&lat={{locationLat}}&lon={{locationLon}}&radar=1" target="_blank"><img class="card-img-top pin-image radar-gif" src="http://api.wunderground.com/api/{{apiKey}}/animatedradar/animatedsatellite/q/{{locationLat}},{{locationLon}}.gif?num=8&delay=50&interval=30" alt="weather radar"></a>
                 </div>
-                <a href="https://www.wunderground.com/cgi-bin/findweather/getForecast?apiref={{apiRef}}&query={{locationCity}}%2C+{{locationState}}" target="_blank"><div class="panel-body">
+                <a href="https://www.wunderground.com/{{locationCountry}}/{{locationState}}/{{locationCity}}.html" target="_blank"><div class="panel-body">
                     <div class="row">
                         <div class="col-xs-4">
                             <img class="img-thumbnail" src="{{icon}}" alt="{{weather}}">
